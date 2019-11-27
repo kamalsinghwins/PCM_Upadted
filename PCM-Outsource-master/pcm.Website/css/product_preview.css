@@ -1,0 +1,68 @@
+﻿* {margin:0;padding:0}
+body {font-family: sans-serif;font-size:14px;line-height:18px;color:#333;}
+a {text-decoration:none;color:#333}
+a:hover {text-decoration:none}
+a, a:active, a:focus{text-decoration:none !important}
+h1, h2, h3, h4, h5, h6 {font-weight:normal;margin-bottom:15px;}
+img {border:none;max-width:100%;height:auto}
+input[type=text], input[type=email], textarea {padding:5px;outline:none}
+input[type=submit] {cursor:pointer}
+.fix {overflow:hidden}
+.alignleft {float:left;margin-right:10px}
+.alignright {float:right;margin-left:10px}
+.aligncenter {display:block;margin:0 auto}
+.floatleft {float:left}
+.floatright {float:right}
+.column {width:750px;margin:0 auto;transition: all 0.9s ease 0s;-moz-transition: all 0.9s ease 0s;-webkit-transition: all 0.9s ease 0s;-o-transition: all 0.9s ease 0s;}
+div{overflow:hidden;}
+
+.logo{margin: 15px 0;}
+.logo img{}
+.main_content{}
+.generate_new_voucher{float: left;margin-top: 30px;}
+.generate_new_voucher button{background: none repeat scroll 0 0 #C62828;margin-left: 10px;transition: all 0.6s ease 0s;-moz-transition: all 0.6s ease 0s;-webkit-transition: all 0.6s ease 0s;-o-transition: all 0.6s ease 0s;border: 1px solid #C62828;border-radius: 3px;color: #FFFFFF;cursor: pointer;font-size: 14px;padding: 3px 25px;}
+
+.save_skip{float: right;}
+.save_skip button{background: none repeat scroll 0 0 #C62828;margin-left: 10px;transition: all 0.6s ease 0s;-moz-transition: all 0.6s ease 0s;-webkit-transition: all 0.6s ease 0s;-o-transition: all 0.6s ease 0s;border: 1px solid #C62828;border-radius: 3px;color: #FFFFFF;cursor: pointer;font-size: 14px;padding: 3px 25px;}
+.save_skip button:hover{background: #ff0000;border: 1px solid #C62828;}
+.dxbButton_SaveButtons{background: none repeat scroll 0 0 #C62828;margin-left: 10px;transition: all 0.6s ease 0s;-moz-transition: all 0.6s ease 0s;-webkit-transition: all 0.6s ease 0s;-o-transition: all 0.6s ease 0s;border: 1px solid #C62828;border-radius: 3px;color: #FFFFFF;cursor: pointer;font-size: 14px;padding: 3px 25px;}
+.dxbButtonHover_SaveButtons{background: #ff0000;border: 1px solid #C62828;}
+
+.saveItemButton{background: none repeat scroll 0 0 #C62828;margin-left: 10px;transition: all 0.6s ease 0s;-moz-transition: all 0.6s ease 0s;-webkit-transition: all 0.6s ease 0s;-o-transition: all 0.6s ease 0s;border: 1px solid #C62828;border-radius: 3px;color: #FFFFFF;cursor: pointer;font-size: 14px;padding: 3px 25px;}
+.saveItemButton:hover{background: #ff0000;border: 1px solid #C62828;}
+
+.content{width: 100%;}
+.my_points{border: 1px solid #C62828;position:relative;margin-right: 15px;min-height: 100px;padding: 12px;width: 170px;}
+.left_content{}
+.product_description_two{}
+.left_content_para{margin-top: 45px;}
+.my_points p{}
+.my_points p span{float: right;}
+.my_points h3{background: none repeat scroll 0 0 #C62828;color: #FFFFFF;font-size: 20px;left: 0;padding: 11px;position: absolute;text-align: center;text-transform: uppercase;top: 0;width: 172px;}
+.left_content_menu{margin-bottom: 20px;margin-right: 15px;width: 196px;}
+.left_content_menu ul{margin:0;padding:0;list-style:none;}
+.left_content_menu ul li{margin-bottom: 4px;}
+.left_content_menu ul li:last-child{margin-bottom: 0px;}
+.left_content_menu ul li a{background: none repeat scroll 0 0 #C62828;border: 1px solid #C62828;color: #FFFFFF;display: block;padding: 5px;text-align: center;transition: all 0.6s ease 0s;-moz-transition: all 0.6s ease 0s;-webkit-transition: all 0.6s ease 0s;-o-transition: all 0.6s ease 0s;}
+.left_content_menu ul li a:hover{background: none repeat scroll 0 0 #ff0000;border: 1px solid #C62828;}
+.right_content{width: 100%;}
+
+.product_slider{border: 1px solid #C62828;width: 320px;}
+.jssort05{border-top: 1px solid #C62828;}
+.product_description{border: 1px solid #C62828;position:relative;margin-left: 14px;min-height: 287px;padding: 20px;width: 370px;}
+.pro_top{}
+.pro_top h2{background: none repeat scroll 0 0 #C62828;color: #FFFFFF;font-size: 25px;left: 0;line-height: 30px;padding: 5px;position: absolute;text-align: center;top: 0;width: 400px;}
+.product_details{margin-top: 38px;}
+.product_details h3{font-weight: bold;margin-bottom: 5px;text-transform: uppercase;}
+.product_details p{}
+.product_details p span{}
+.rating{margin-top: 5px;}
+.rating_star{margin-bottom: 10px;}
+.rating_star ul{margin:0;padding:0;list-style:none;}
+.rating_star ul li{float:left;}
+.rating_star ul li a{background: url("../images/red_star.png") no-repeat scroll 0 0;display: block;height: 42px;margin-right: 5px;text-indent: -99999px;width: 44px;}
+.pro_bottom{margin-top: 15px;}
+.price_range{}
+.price_range p{float: left;margin-right: 10px;}
+.price_range input{margin-right: 10px;}
+.price_range span{margin-right: 5px;}

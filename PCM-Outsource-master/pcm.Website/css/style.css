@@ -1,0 +1,244 @@
+﻿*
+{
+    margin: 0 6px 0 0;
+    padding: 0;
+}
+
+body
+{
+    background-color: #e4ecf0;
+}
+
+img
+{
+    border: 0;
+    text-align: left;
+    vertical-align: top;
+}
+
+ul
+{
+    list-style: none;
+}
+
+li
+{
+    line-height: 0;
+}
+
+.column
+{
+    float: left;
+}
+
+.clear
+{
+    clear: both;
+}
+
+body
+{
+    font-family: Arial, helvetica, sans-serif;
+    color: #909090;
+    font-size: 0.7100em;
+    line-height: 1.45em;
+    text-align: center;
+    height: 311px;
+}
+
+img
+{
+    behavior: url('pngbehavior.htc');
+}
+/*  THIS SNIPPET USED FOR TRANSPARENCY IN PNG */
+/*=======old===========
+input, textarea, select{color:#000000; vertical-align:middle; text-align:center; border: 1px solid #E1E1E1; font:11px Tahoma, Arial, helvetica, sans-serif;}
+*/
+input
+{
+    color: #000000;
+    vertical-align: middle;
+    border: 1px solid #E1E1E1;
+    font: 11px Tahoma, Arial, helvetica, sans-serif;
+}
+
+.main{width:980px; margin:0 auto; text-align:left;}
+
+.float_right
+{
+    float: right;
+    width: 37%;
+}
+
+.float_left
+{
+    float: left;
+    width: 216px;
+}
+
+
+.float_left_l
+{
+    float: left;
+}
+
+.align_right
+{
+    text-align: right;
+}
+
+.center
+{
+    text-align: center;
+}
+
+.top_indent_5px
+{
+    padding-top: 5px;
+    display: block;
+}
+
+.top_indent_10px
+{
+    padding-top: 10px;
+    display: block;
+}
+
+.top_indent_15px
+{
+    padding-top: 15px;
+    display: block;
+}
+
+.top_indent_20px
+{
+    padding-top: 20px;
+    display: block;
+}
+
+.top_indent_25px
+{
+    padding-top: 25px;
+    display: block;
+}
+
+.width_stretch
+{
+    width: 100%;
+}
+
+.col_1, .col_2, .col_3, .box_1, .box_2, .box_3, .mid, .mid_2
+{
+    float: left;
+}
+
+/*=======header===========*/
+.logo
+{
+    height: 134px;
+}
+/*=====//header===========*/
+
+/*=======content===========*/
+#content
+{
+    padding: 22px 42px 22px 49px;
+    background: url(../../images/content_bg.jpg) 26px top no-repeat;
+}
+
+.col1
+{
+    width: 11%;
+}
+
+.col2
+{
+    width: 39%;
+}
+
+.col3
+{
+    width: 21px;
+}
+
+.col5
+{
+    padding-left: 2px;
+}
+
+.col4
+{
+    width: 332px;
+}
+
+.style1
+{
+    width: 228px;
+    height: 32px;
+}
+
+.style3
+{
+    height: 17px;
+    width: 228px;
+}
+
+.style4
+{
+    height: 15px;
+    width: 228px;
+}
+
+.style5
+{
+    width: 452px;
+    height: 29px;
+    padding-left: 2px;
+}
+
+.style6
+{
+    width: 452px;
+    height: 16px;
+}
+
+.style7
+{
+    height: 17px;
+    width: 272px;
+}
+
+.style8
+{
+    height: 15px;
+    width: 272px;
+}
+
+.style9
+{
+    width: 272px;
+    height: 29px;
+}
+
+.style10
+{
+    width: 272px;
+    height: 16px;
+}
+
+
+
+
+.auto-style16
+{
+    width: 53px;
+}
+
+
+
+.auto-style27
+{
+    width: 55%;
+}
+
+

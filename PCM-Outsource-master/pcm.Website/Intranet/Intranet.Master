@@ -1,0 +1,476 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Intranet.master.vb" Inherits="pcm.Website.Intranet" %>
+
+<%@ Register Assembly="DevExpress.Web.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web" TagPrefix="dx" %>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>Positive Live - Online</title>
+    <link href="../css/collections.css" rel="stylesheet" type="text/css" />
+    <link href="../css/custom.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .style1 {
+            width: 100%;
+            height: 100%;
+        }
+
+        .logo-column {
+            width: 85%;
+            height: 100%;
+        }
+
+        .auto-style1 {
+            width: 88%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <script type="text/javascript">
+            // <![CDATA[
+            function OnSplitterPaneResized(s, e) {
+                var name = e.pane.name;
+                if (name == 'SidePane')
+                    ResizeControl(splitter, e.pane);
+
+            }
+            function ResizeControl(control, splitterPane) {
+                var isCollapsed = ASPxClientUtils.GetCookie("Sidebar");
+                if (isCollapsed == "true") {
+                    control.SetWidth(228);
+                    control.SetHeight(228);
+                }
+                else {
+                    control.SetWidth(splitterPane.GetClientWidth());
+                    control.SetHeight(splitterPane.GetClientHeight());
+                }
+            }
+
+            function OnSplitterPaneCollapsed(s, e) {
+                ASPxClientUtils.SetCookie("Sidebar", true)
+                 var name = e.pane.name;
+                if (name == 'SidePane')
+                    ResizeControl(splitter, e.pane);
+                ResizeControl(splitter,"SidePane")
+
+            }
+            function OnSplitterPaneExpanded(s, e) {
+                ASPxClientUtils.SetCookie("Sidebar", false)
+                 var name = e.pane.name;
+                if (name == 'LeftPane')
+                    ResizeControl(splitter, e.pane);
+            }
+
+
+            // ]]> 
+        </script>
+        <dx:ASPxSplitter ID="ASPxSplitter1" runat="server" FullscreenMode="True" Width="100%"
+            Height="100%" Orientation="Vertical" Theme="Office2010Blue">
+            <Panes>
+                <dx:SplitterPane Size="74">
+                    <ContentCollection>
+                        <dx:SplitterContentControl ID="SplitterContentControl1" runat="server">
+                            <table id="HeaderArea">
+                                <tr>
+                                    <td class="auto-style1">&nbsp;&nbsp;
+                                       <dx:ASPxLabel runat="server" Text="Positive Live" ID="ASPxLabel1"
+                                           Font-Bold="False" Font-Names="Verdana" Font-Size="24px" ForeColor="#0066CC">
+                                       </dx:ASPxLabel>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            </table>
+
+                            <dx:ASPxMenu runat="server" ItemAutoWidth="False" ClientInstanceName="ClientHeaderMenu" Target="MainHolder" Theme="Office2010Blue" Width="100%" ID="HeaderMenu">
+                                <Items>
+                                    <dx:MenuItem Name="Processing" Target="_self" Text="Processing">
+                                        <Items>
+
+                                            <dx:MenuItem Name="Collections" Text="Collections">
+                                                <Items>
+                                                    <dx:MenuItem Name="Collection" NavigateUrl="~/Collections/hud.aspx" Target="_self" Text="Collections">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="ContactInvestigation" NavigateUrl="~/Collections/ContactInvestigation.aspx" Target="_self" Text="Contact Investigation">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="Investigations" NavigateUrl="~/Collections/investigations.aspx" Target="_self" Text="Investigations">
+                                                    </dx:MenuItem>
+                                                </Items>
+                                            </dx:MenuItem>
+                                            <dx:MenuItem Text="HR">
+                                                <Items>
+                                                    <dx:MenuItem Name="HREmployeeReviews" NavigateUrl="~/Positive/HeadOffice/EmployeeReviews.aspx" Target="_self" Text="Employee Reviews">
+                                                    </dx:MenuItem>
+                                                </Items>
+                                            </dx:MenuItem>
+                                            <dx:MenuItem Name="pPCM" Text="PCM">
+                                                <Items>
+                                                    <dx:MenuItem Name="PCMCardAllocations" NavigateUrl="~/pcm/CardAssign.aspx" Target="_self" Text="Assign New Cards">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="ManualSMSApplication" NavigateUrl="~/pcm/CreditApplication.aspx" Target="_self" Text="Manual SMS Application">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="PCMJournals" NavigateUrl="~/pcm/JournalTransactions.aspx" Target="_self" Text="Process Journal Transactions">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="PCMTransactions" NavigateUrl="~/pcm/ManualTransactions.aspx" Target="_self" Text="Process Transactions">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="PCMUploadPayments" NavigateUrl="~/pcm/UploadPayments.aspx" Target="_self" Text="Upload Payments">
+                                                    </dx:MenuItem>
+                                                </Items>
+                                            </dx:MenuItem>
+                                            <dx:MenuItem Text="Positive">
+                                                <Items>
+                                                    <dx:MenuItem Name="DeleteIBT" NavigateUrl="~/Positive/HeadOffice/DeleteIBT.aspx" Target="_self" Text="Delete IBT ">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="DispatchStock" NavigateUrl="~/Positive/HeadOffice/DispatchStock.aspx" Target="_self" Text="Dispatch Stock">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="GRV" NavigateUrl="~/Positive/HeadOffice/GRV.aspx" Target="_self" Text="GRV">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="IBTIN" NavigateUrl="~/Positive/HeadOffice/IBT_In.aspx" Target="_self" Text="IBT IN">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="IBTOUT" NavigateUrl="~/Positive/HeadOffice/IBT_Out.aspx" Target="_self" Text="IBT OUT">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="ManageIBT" NavigateUrl="~/Positive/HeadOffice/ManageIBT.aspx" Target="_self" Text="Manage IBT ">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="ReturnToWarehouse" NavigateUrl="~/Positive/HeadOffice/ReturnToWarehouse.aspx" Target="_self" Text="Return To Warehouse">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="StockAllocationUpload" NavigateUrl="~/Positive/HeadOffice/UploadAllocations.aspx" Target="_self" Text="Stock Allocation Upload">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="StockAdjustments" NavigateUrl="~/Positive/HeadOffice/StockAdjustments.aspx" Target="_self" Text="Stock Adjustments">
+                                                    </dx:MenuItem>
+                                                </Items>
+                                            </dx:MenuItem>
+                                        </Items>
+                                    </dx:MenuItem>
+                                    <dx:MenuItem Name="Maintenance" Text="Maintenance">
+                                        <Items>
+                                            <dx:MenuItem Name="ManageDebtors" NavigateUrl="~/pcm/DebtorsMaintainence.aspx" Target="_self" Text="Manage Debtor Accounts">
+                                            </dx:MenuItem>
+                                            <dx:MenuItem Name="Questionnaire" NavigateUrl="~/HR/listing.aspx" Target="_self" Text="Manage HR Questionnaires">
+                                            </dx:MenuItem>
+                                            <dx:MenuItem Name="ManageUsers" NavigateUrl="~/Intranet/ManageUsers.aspx" Target="_self" Text="Manage Web Users">
+                                            </dx:MenuItem>
+                                            <dx:MenuItem Name="Positive" Text="Positive">
+                                                <Items>
+                                                    <dx:MenuItem Name="BankRecon" NavigateUrl="~/Positive/HeadOffice/BankRecon.aspx" Target="_self" Text="Bank Recon">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="BlockStock" NavigateUrl="~/Positive/HeadOffice/BlockStock.aspx" Target="_self" Text="Block Stock">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="UploadBuyingImages" NavigateUrl="~/Buying/ProductImageUpload.aspx" Text="Buying Images Upload" Target="_self">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="ImportBranches" NavigateUrl="~/Positive/HeadOffice/BranchImport.aspx" Text="Branch Import" Target="_self">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="LoyaltyDiscounts" NavigateUrl="~/Positive/HeadOffice/LoyaltyDiscount.aspx" Target="_self" Text="Loyalty Discounts">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="ManageBranches" NavigateUrl="~/Positive/HeadOffice/ManageBranches.aspx" Target="_self" Text="Manage Branches">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="ManageCategories" NavigateUrl="~/Positive/HeadOffice/CategoryMaintenance.aspx" Target="_self" Text="Manage Categories">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="ManageColourMatrix" NavigateUrl="~/Positive/HeadOffice/ManageColourMatrix.aspx" Target="_self" Text="Manage Colour Matrix">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="ManageEmployees" NavigateUrl="~/Positive/HeadOffice/ManageEmployees.aspx" Target="_self" Text="Manage Employees">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="ManagePositiveUsers" NavigateUrl="~/Positive/HeadOffice/ManagePositiveUsers.aspx" Target="_self" Text="Manage HO / Shop Users">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="ManageMunicipalities" NavigateUrl="~/Positive/HeadOffice/ManageMunicipality.aspx" Target="_self" Text="Manage Municipalities">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="ManagePoints" NavigateUrl="~/Positive/HeadOffice/PointsMaintenance.aspx" Target="_self" Text="Manage Points">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="ManageRegions" NavigateUrl="~/Positive/HeadOffice/ManageRegions.aspx" Target="_self" Text="Manage Regions">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="ManageScreensaverImages" NavigateUrl="~/Positive/HeadOffice/ScreensaverImages.aspx" Target="_self" Text="Manage Screensaver Images">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="ManageSelfAssistImages" NavigateUrl="~/Positive/HeadOffice/SelfAssistHomeImages.aspx" Target="_self" Text="Manage Self Assist Images">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="ManageSizeMatrix" NavigateUrl="~/Positive/HeadOffice/ManageSizeMatrix.aspx" Target="_self" Text="Manage Size Matrix">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="ManageSuppliers" NavigateUrl="~/Positive/HeadOffice/ManageSuppliers.aspx" Target="_self" Text="Manage Suppliers">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="StockcodeManager" NavigateUrl="~/Positive/HeadOffice/StockcodeManager.aspx" Target="_self" Text="Manage Stockcodes">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="ManageTargets" NavigateUrl="~/Positive/HeadOffice/ManageTargets.aspx" Target="_self" Text="Manage Targets">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="ManageTills" NavigateUrl="~/Positive/HeadOffice/ManageTills.aspx" Target="_self" Text="Manage Tills">
+                                                    </dx:MenuItem>
+                                                    <%--<dx:MenuItem Name="ManageStationary" NavigateUrl="~/Positive/HeadOffice/ManageStationary.aspx" Target="_self" Text="Manage Stationary">
+                                                    </dx:MenuItem>--%>
+                                                    <dx:MenuItem Name="PrePacks" NavigateUrl="~/Positive/HeadOffice/PrePacks.aspx" Target="_self" Text="Pre Packs">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="Specials" NavigateUrl="~/Positive/HeadOffice/Specials.aspx" Target="_self" Text="Specials">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="StockQuantityImport" NavigateUrl="~/Positive/HeadOffice/StockQuantityImport.aspx" Target="_self" Text="Stock Quantity Import">
+                                                    </dx:MenuItem>
+                                                </Items>
+                                            </dx:MenuItem>
+                                            <dx:MenuItem Name="SendMarketingSMS" NavigateUrl="~/pcm/SendMarketingSMS.aspx" Target="_self" Text="Send Marketing SMS"></dx:MenuItem>
+                                        </Items>
+                                    </dx:MenuItem>
+                                    <dx:MenuItem Name="Reporting" Text="Reporting">
+                                        <Items>
+                                            <dx:MenuItem Text="Collections">
+                                                <Items>
+                                                    <dx:MenuItem Name="AgingSummary" NavigateUrl="~/Reports/PCM/ReportsAgingSummary.aspx" Target="_self" Text="Aging Summary A"></dx:MenuItem>
+                                                    <dx:MenuItem Name="AgingSummaryReport" NavigateUrl="~/Reports/PCM/AgingSummaryReport.aspx" Target="_self" Text="Aging Summary B"></dx:MenuItem>
+                                                    <dx:MenuItem Name="CollectionsAdmin" Text="Collections Admin" Target="_self" NavigateUrl="~/Reports/Collections/ReportsCollectionAdmin.aspx"></dx:MenuItem>
+                                                    <dx:MenuItem Name="CollectionsByUser" NavigateUrl="~/Reports/Collections/ReportsCollectionsByUser.aspx" Target="_self" Text="Collections By User">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="PaymentsVSContacts" NavigateUrl="~/Reports/Collections/ReportsPaymentsAndContacts.aspx" Target="_self" Text="Payments VS Contacts">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="SMSSending" NavigateUrl="~/Reports/Collections/ReportsSMSSending.aspx" Target="_self" Text="SMS Sending">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="Users" Text="Users">
+                                                        <Items>
+                                                            <dx:MenuItem Name="Summary" NavigateUrl="~/Reports/Collections/ReportsUsersSummary.aspx" Target="_self" Text="Summary"></dx:MenuItem>
+                                                            <dx:MenuItem Name="Transactions" NavigateUrl="~/Reports/Collections/ReportsUsers.aspx" Target="_self" Text="Transactions"></dx:MenuItem>
+                                                        </Items>
+                                                    </dx:MenuItem>
+                                                </Items>
+                                            </dx:MenuItem>
+                                            <dx:MenuItem Text="Marketing">
+                                                <Items>
+                                                    <dx:MenuItem Name="MarketingExport" NavigateUrl="~/Reports/Marketing/Marketing.aspx" Target="_self" Text="Marketing Exports"></dx:MenuItem>
+                                                    <dx:MenuItem Name="SMSReport" NavigateUrl="~/Reports/PCM/SMSReport.aspx" Target="_self" Text="SMS Logs"></dx:MenuItem>
+                                                </Items>
+                                            </dx:MenuItem>
+                                            <dx:MenuItem Text="PCM">
+                                                <Items>
+                                                    <dx:MenuItem Name="AccountCardSummary" NavigateUrl="~/Reports/PCM/CardSummary.aspx" Target="_self" Text="Account Card Summary">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="AccountsDrive" NavigateUrl="~/Reports/PCM/AccountsOpenedByEmployee.aspx" Target="_self" Text="Accounts Drive A">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="AccountsDriveReport" NavigateUrl="~/Reports/PCM/AccountsDrive.aspx" Target="_self" Text="Accounts Drive B">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="AccountsByStore" NavigateUrl="~/Reports/PCM/AccountsOpenedByStore.aspx" Target="_self" Text="Accounts Opened By Store">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="AgeAnalysis" NavigateUrl="~/Reports/PCM/AgeAnalysis.aspx" Target="_self" Text="Age Analysis Report">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="AgeAnalysisSummary" NavigateUrl="~/Reports/PCM/AgeAnalysisSummary.aspx" Target="_self" Text="Age Analysis Summary">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="AverageAccountSale" NavigateUrl="~/Reports/PCM/AverageAccountSale.aspx" Target="_self" Text="Average Account Sale"></dx:MenuItem>
+                                                    <dx:MenuItem Name="BadDebt" NavigateUrl="~/Reports/PCM/BadDebt.aspx" Target="_self" Text="Bad Debt">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="BadDebtByStore" NavigateUrl="~/Reports/PCM/BadDebtByStore.aspx" Target="_self" Text="Bad Debt By Store">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="DebtorHistory" NavigateUrl="~/Reports/PCM/DebtorHistory.aspx" Target="_self" Text="Debtor History">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="ErrorReport" NavigateUrl="~/Reports/PCM/ErrorReports.aspx" Target="_self" Text="Error Logs">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="GiftCardDetails" NavigateUrl="~/Reports/PCM/GiftCardDetails.aspx" Target="_self" Text="Gift Card Details">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="IncomingSMS" NavigateUrl="~/Reports/PCM/IncomingSMS.aspx" Target="_self" Text="Incoming SMS">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="IncomingRageSMS" NavigateUrl="~/Reports/PCM/IncomingRageSMS.aspx" Target="_self" Text="Incoming Rage SMS">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="IncomingManualSaleSMS" NavigateUrl="~/Reports/PCM/IncomingManualSaleSMS.aspx" Target="_self" Text="Incoming Manual Sale SMS">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="InterestPayments" NavigateUrl="~/Reports/PCM/ReportInterestTransactions.aspx" Target="_self" Text="Interest Payments">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="LimitIncreaseReport" NavigateUrl="~/Reports/PCM/LimitIncreaseReport.aspx" Target="_self" Text="Limit Increase Report">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="NewAccountsReport" NavigateUrl="~/Reports/PCM/NewAccounts.aspx" Target="_self" Text="New Accounts">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="TransactionReport" NavigateUrl="~/Reports/PCM/TransactionList.aspx" Target="_self" Text="Quick Transaction Report">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="SalesPaymentsPerAccount" NavigateUrl="~/Reports/PCM/SalesPaymentsPerAccount.aspx" Target="_self" Text="Sale and Payments Per Account">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="TransactionsByStore" NavigateUrl="~/Reports/PCM/TransactionsByStore.aspx" Target="_self" Text="Transactions By Store">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="TransunionLog" NavigateUrl="~/collections/rep_WebServiceLogs.aspx" Target="_self" Text="Transunion Webservice Logs"></dx:MenuItem>
+                                                    <dx:MenuItem Name="VintageReport" NavigateUrl="~/Reports/PCM/VintageReport.aspx" Target="_self" Text="Vintage Report"></dx:MenuItem>
+                                                    <%--<dx:MenuItem Name="SMSReport" NavigateUrl="~/Reports/PCM/SMSReport.aspx" Target="_self" Text="SMS Logs"></dx:MenuItem>--%>
+                                                </Items>
+                                            </dx:MenuItem>
+                                            <dx:MenuItem Text="Positive">
+                                                <Items>
+                                                    <dx:MenuItem Name="Management" Text="Management Reporting">
+                                                        <Items>
+                                                            <dx:MenuItem Name="AccountSales" NavigateUrl="~/Reports/Positive/Turnover Graph/graph_account_sales.aspx" Target="_self" Text="Account Sales"></dx:MenuItem>
+                                                            <dx:MenuItem Name="CurrentTurnoverGraph" NavigateUrl="~/Reports/Positive/Turnover Graph/graph_current_turnover_new.aspx" Target="_self" Text="Current Turnover Graph"></dx:MenuItem>
+                                                            <dx:MenuItem Name="GraphSegments" NavigateUrl="~/Reports/Positive/Turnover Graph/graph_segments.aspx" Target="_self" Text="Graph Segments"></dx:MenuItem>
+                                                        </Items>
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="AverageCashSale" NavigateUrl="~/Reports/Positive/AverageCashSale.aspx" Target="_self" Text="Average Cash Sale">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="Branches" NavigateUrl="~/Reports/Positive/BranchReport.aspx" Target="_self" Text="Branch Report">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="BankReconReport" NavigateUrl="~/Reports/Positive/BankReconReport.aspx" Target="_self" Text="Bank Recon Report">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="BuyingReport" NavigateUrl="~/Buying/BuyingReport.aspx" Target="_self" Text="Buying Report">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="Cash" Text="Cash">
+                                                        <Items>
+                                                            <dx:MenuItem Name="CreditCardAuth" NavigateUrl="~/Reports/Positive/CCAuthorisation.aspx" Target="_self" Text="Cash Card Auth Report">
+                                                            </dx:MenuItem>
+                                                            <dx:MenuItem Name="CashDiscrepancy" NavigateUrl="~/Reports/Positive/CashDiscrepancy.aspx" Target="_self" Text="Cash Discrepancy Report">
+                                                            </dx:MenuItem>
+                                                            <dx:MenuItem Name="CashTransactionsReport" NavigateUrl="~/Reports/Positive/CashTransactionsReport.aspx" Target="_self" Text="Cash Transactions Report">
+                                                            </dx:MenuItem>
+                                                            <dx:MenuItem Name="NewCashUp" NavigateUrl="~/Reports/Positive/NewCashUp.aspx" Target="_self" Text="New CashUp">
+                                                            </dx:MenuItem>
+                                                            <%--   <dx:MenuItem Name="CashReports" NavigateUrl="~/Reports/Positive/CashReports.aspx" Target="_self" Text="Cash Reports">
+                                                            </dx:MenuItem>--%>
+                                                        </Items>
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="CashCards" Text="Cash Cards">
+                                                        <Items>
+                                                            <dx:MenuItem Name="CashCardsOverview" NavigateUrl="~/Reports/Positive/CashCards.aspx" Target="_self" Text="Cash Cards - Overview">
+                                                            </dx:MenuItem>
+                                                            <dx:MenuItem Name="CashCardSummary" NavigateUrl="~/Reports/Positive/CashCardSummary.aspx" Target="_self" Text="Cash Card Summary">
+                                                            </dx:MenuItem>
+                                                            <dx:MenuItem Name="CashCards" NavigateUrl="~/Reports/Positive/CashCardCustomersTransactions.aspx" Target="_self" Text="Cash Card Transactions">
+                                                            </dx:MenuItem>
+                                                        </Items>
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="CategorySummary" NavigateUrl="~/Reports/Positive/CatSummary.aspx" Target="_self" Text="Category Summary">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="ColourGrids" NavigateUrl="~/Reports/Positive/ColourGrids.aspx" Target="_self" Text="Colour Grids Report">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="DeletedIBTs" NavigateUrl="~/Reports/Positive/DeletedIBT.aspx" Target="_self" Text="Deleted IBTs">
+                                                    </dx:MenuItem>
+                                                     <dx:MenuItem Name="Discount" NavigateUrl="~/Reports/Positive/Discounts.aspx" Target="_self" Text="Discount">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="LastUpdateData" NavigateUrl="~/Reports/Positive/LastUpdateData.aspx" Target="_self" Text="Last Update Data">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="RankersReport" NavigateUrl="~/Buying/Rankers_Report.aspx" Target="_self" Text="Rankers Report">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="Reprints" NavigateUrl="~/Reports/Positive/Reprints.aspx" Target="_self" Text="Reprints">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="ReprintDispatchedStock" NavigateUrl="~/Reports/Positive/ReprintDispatchStock.aspx" Target="_self" Text="Reprint Dispatched Stock">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="SellOffPerItem" NavigateUrl="~/Reports/Positive/SellOffPerItem.aspx" Target="_self" Text="Sell Off Per Item">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="SizeGridReport" NavigateUrl="~/Reports/Positive/SizeGridsReport.aspx" Target="_self" Text="Size Grid Report">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="Stock" Text="Stock">
+                                                        <Items>
+                                                            <dx:MenuItem Name="BestSellers" NavigateUrl="~/Reports/Positive/BestSellersReport.aspx" Target="_self" Text="Best Sellers Report A">
+                                                            </dx:MenuItem>
+                                                            <dx:MenuItem Name="BestSellersReport" NavigateUrl="~/Reports/Positive/BestSellers.aspx" Target="_self" Text="Best Sellers Report B">
+                                                            </dx:MenuItem>
+                                                            <dx:MenuItem Name="CategoryReport" NavigateUrl="~/Reports/Positive/CategoryReport.aspx" Target="_self" Text="Category 2 Report">
+                                                            </dx:MenuItem>
+                                                            <dx:MenuItem Name="SingleSOH" NavigateUrl="~/Reports/Positive/SingleStockOnHandReport.aspx" Target="_self" Text="Single Stockcode SOH">
+                                                            </dx:MenuItem>
+                                                              <dx:MenuItem Name="SOH" NavigateUrl="~/Reports/Positive/SOH.aspx" Target="_self" Text="SOH">
+                                                            </dx:MenuItem>
+                                                            <dx:MenuItem Name="StockOnHandByBranch" NavigateUrl="~/Reports/Positive/StockOnHandReport.aspx" Target="_self" Text="Stock On Hand By Branch">
+                                                            </dx:MenuItem>
+                                                              <dx:MenuItem Name="StockHistory" NavigateUrl="~/Reports/Positive/StockHistory.aspx" Target="_self" Text="Stock History">
+                                                            </dx:MenuItem>
+                                                            <dx:MenuItem Name="StockTransaction" NavigateUrl="~/Reports/Positive/StockTransactionsReport.aspx" Target="_self" Text="Stock Transactions Report">
+                                                            </dx:MenuItem>
+                                                            <dx:MenuItem Name="TotalStockByBranch" NavigateUrl="~/Reports/Positive/TotalStockByBranch.aspx" Target="_self" Text="Total Stock By Branch">
+                                                            </dx:MenuItem>
+                                                            <dx:MenuItem Name="TotalStockOnHand" NavigateUrl="~/Reports/Positive/TotalStockOnHand.aspx" Target="_self" Text="Total Stock On Hand">
+                                                            </dx:MenuItem>
+                                                        </Items>
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="TasksReport" NavigateUrl="~/Reports/Positive/TasksReport.aspx" Target="_self" Text="Tasks Report">
+                                                    </dx:MenuItem>
+                                                     <dx:MenuItem Name="VoidsAndNoSales" NavigateUrl="~/Reports/Positive/VoidsAndNoSales.aspx" Target="_self" Text="Voids And No Sales">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="WebServiceLogs" NavigateUrl="~/Reports/Positive/WebServiceLogs.aspx" Target="_self" Text="Web Service Logs">
+                                                    </dx:MenuItem>
+                                                     <dx:MenuItem Name="WebServiceWebLogs" NavigateUrl="~/Reports/Positive/WebServiceWebLogs.aspx" Target="_self" Text="Web Service Web Logs">
+                                                    </dx:MenuItem>
+                                                </Items>
+                                            </dx:MenuItem>
+                                            <dx:MenuItem Text="HR">
+                                                <Items>
+                                                    <dx:MenuItem Name="EmployeesClocking" NavigateUrl="~/Reports/HR/EmployeeClocking.aspx" Target="_self" Text="Employees Clocking">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="GridEmployeesClocking" NavigateUrl="~/Reports/HR/GrdEmployeeClocking.aspx" Target="_self" Text="Employees Clocking Report">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="EmployeesDetailsReport" NavigateUrl="~/Reports/HR/EmployeeDetailsReport.aspx" Target="_self" Text="Employees Details Report">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="EmployeesHistoryReport" NavigateUrl="~/Reports/HR/EmployeeDetails.aspx" Target="_self" Text="Employees History Report">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="EmployeesPerStore" NavigateUrl="~/Reports/HR/EmployeesPerStore.aspx" Target="_self" Text="Employees Per Store">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="HREmployeeReviewReport" NavigateUrl="~/Reports/HR/EmployeeReview.aspx" Target="_self" Text="Employee Review Report">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="HistoricalClockingReport" NavigateUrl="~/Reports/HR/HistoricalClockingReport.aspx" Target="_self" Text="Historical Clocking Report">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="QuestionnaireReport" NavigateUrl="~/Reports/HR/QuestionnaireReport.aspx" Target="_self" Text="Questionnaire Report">
+                                                    </dx:MenuItem>
+                                                </Items>
+                                            </dx:MenuItem>
+                                        </Items>
+                                    </dx:MenuItem>
+                                    <dx:MenuItem Name="ViewReports" Text="View Reports"></dx:MenuItem>
+                                    <dx:MenuItem Name="Logout" Text="Logout"></dx:MenuItem>
+                                </Items>
+
+                                <SubMenuStyle CssClass="HeaderSubMenu"></SubMenuStyle>
+
+                                <BorderLeft BorderWidth="0px"></BorderLeft>
+
+                                <BorderRight BorderWidth="0px"></BorderRight>
+
+                                <BorderBottom BorderWidth="0px"></BorderBottom>
+                                <ClientSideEvents ItemClick="function(s, e) {e.processOnServer = e.item.GetItemCount() == 0;}" />
+
+                            </dx:ASPxMenu>
+
+                        </dx:SplitterContentControl>
+                    </ContentCollection>
+                    <PaneStyle CssClass="HeaderPane">
+                        <BorderBottom BorderWidth="0" />
+                        <Paddings Padding="0" />
+                    </PaneStyle>
+                </dx:SplitterPane>
+                <dx:SplitterPane AllowResize="False" ShowSeparatorImage="False">
+                    <Panes>
+                        <dx:SplitterPane Name="LeftPane" MinSize="30" MaxSize="300" Size="250" ShowCollapseBackwardButton="True" ShowCollapseForwardButton="True">
+                            <Panes>
+                                <dx:SplitterPane ScrollBars="None" Name="SidePane" ShowCollapseBackwardButton="True">
+                                    <ContentCollection>
+                                        <dx:SplitterContentControl ID="SplitterContentControl2" runat="server">
+                                            <asp:ContentPlaceHolder ID="SideHolder" runat="server">
+                                            </asp:ContentPlaceHolder>
+                                        </dx:SplitterContentControl>
+                                    </ContentCollection>
+                                    <PaneStyle>
+                                        <BorderBottom BorderWidth="1" />
+                                        <Paddings Padding="10px" />
+                                    </PaneStyle>
+                                </dx:SplitterPane>
+
+                            </Panes>
+                            <ContentCollection>
+                                <dx:SplitterContentControl ID="SplitterContentControl3" runat="server" SupportsDisabledAttribute="True"></dx:SplitterContentControl>
+                            </ContentCollection>
+                        </dx:SplitterPane>
+                        <dx:SplitterPane Name="MainPane" Size="100%" ScrollBars="Vertical">
+                            <ContentCollection>
+                                <dx:SplitterContentControl ID="SplitterContentControl5" runat="server">
+                                    <asp:ContentPlaceHolder ID="MainHolder" runat="server">
+                                    </asp:ContentPlaceHolder>
+                                </dx:SplitterContentControl>
+                            </ContentCollection>
+                            <PaneStyle>
+                                <border borderwidth="0" />
+                                <Paddings Padding="0" />
+                            </PaneStyle>
+                        </dx:SplitterPane>
+                    </Panes>
+                    <Separator Visible="False" />
+                    <PaneStyle>
+                        <BorderBottom BorderWidth="0" />
+                        <Paddings Padding="10px" />
+                    </PaneStyle>
+
+                    <ContentCollection>
+                        <dx:SplitterContentControl ID="SplitterContentControl4" runat="server" SupportsDisabledAttribute="True"></dx:SplitterContentControl>
+                    </ContentCollection>
+
+                </dx:SplitterPane>
+            </Panes>
+            <ClientSideEvents PaneResized="OnSplitterPaneResized" PaneCollapsed="OnSplitterPaneCollapsed" PaneExpanded="OnSplitterPaneExpanded" />
+        </dx:ASPxSplitter>
+    </form>
+</body>
+</html>

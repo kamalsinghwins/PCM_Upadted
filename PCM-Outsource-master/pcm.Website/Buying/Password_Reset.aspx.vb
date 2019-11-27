@@ -1,0 +1,30 @@
+﻿Imports pcm.BusinessLayer
+Imports DevExpress.Web
+
+Public Class Password_Reset
+
+    Inherits System.Web.UI.Page
+
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Session("current_company") = "010"
+    End Sub
+
+    Protected Sub cmdReset_Click(sender As Object, e As EventArgs) Handles cmdReset.Click
+        Dim ReturnString As String
+
+        cmdReset.Enabled = False
+
+        Dim _BLayer As New BuyingBL()
+
+        ReturnString = _BLayer.ResetPassword(txtEmailAddress.text)
+
+        If ReturnString = "Fail" Then
+            'lblError.Text = ReturnString
+        ElseIf ReturnString = "Success" Then
+            lblError.Text = "We have sent instructions on how to reset your password to your email address. Please check your spam folder in case our email gets marked as Spam."
+        End If
+
+        dxPopUpError.ShowOnPageLoad = True
+
+    End Sub
+End Class

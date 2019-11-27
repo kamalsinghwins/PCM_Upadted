@@ -1,0 +1,165 @@
+﻿
+.scrollGraph {
+    overflow-x: scroll;
+    width: 100%;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.ellipsis {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 100px !important;
+}
+
+.mr-20 {
+    margin-right: 20px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.text-transform-capitalize {
+    text-transform: capitalize;
+}
+
+.auto-style2 {
+    width: 140px;
+}
+.mainContainer {
+    padding: 15px 20px;
+}
+
+.pull-left {
+    float: left !important;
+}
+
+.pull-right {
+    float: right !important;
+}
+
+
+.loader-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 9999;
+    top: 0;
+    background: rgba(255, 255, 255, 0.9);
+    left: 0;
+}
+.Pointer {
+    cursor: pointer;
+}
+.loader {
+    position: absolute;
+    left: calc(50% - 40px);
+    top: 50%;
+    z-index: 1;
+    width: 60px;
+    height: 60px;
+    border: 5px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 5px solid #3498db;
+    -webkit-animation: spin .8s linear infinite;
+    animation: spin .8s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+ /* Size Matrix*/
+
+.mt {
+    margin-top: 20px;
+}
+.labelSpan {
+    border: 1px solid grey;
+    margin-top: 10px;
+    width: 33.33%;
+    float: left;
+    min-height: 20px
+}
+.selected {
+    background: #ccc;
+}
+.NewItem {
+    cursor: pointer;
+}
+#tableItemsGrid tr > td {
+    text-align: center;
+}
+#tableItemsGrid tr > td > table {
+        margin: 0 auto;
+    }
+#size1 tr > td input {
+    width: 100%;
+    border: none;
+    text-transform: uppercase;
+    padding: 6px 0;
+    text-align: center;
+    padding: 0px
+}
+#size2 tr > td input {
+    width: 100%;
+    border: none;
+    text-transform: uppercase;
+    padding: 6px 0;
+    text-align: center;
+    padding: 0px
+}
+#size3 tr > td input {
+    width: 100%;
+    border: none;
+    text-transform: uppercase;
+    padding: 6px 0;
+    text-align: center;
+    padding: 0px
+}
+#size1 thead > tr {
+    background-color: #cdd9e8!important;
+}
+#size2 thead > tr {
+    background-color: #cdd9e8;
+}
+#size3 thead > tr {
+    background-color: #cdd9e8;
+}
+.custom {
+    margin-bottom: 0px !important;
+}
+#size1 thead tr th {
+    text-align: center;
+      padding:0px
+}
+
+#size2 thead tr th {
+    text-align: center;
+    padding: 0px
+}
+
+#size3 thead tr th {
+    text-align: center;
+    padding: 0px    
+}

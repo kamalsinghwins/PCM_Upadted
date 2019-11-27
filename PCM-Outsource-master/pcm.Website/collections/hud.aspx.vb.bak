@@ -1,0 +1,475 @@
+﻿Imports pcm.BusinessLayer
+Imports Entities
+Imports DevExpress
+Imports DevExpress.Web.ASPxGridView
+Imports DevExpress.Web.ASPxEditors
+Imports System.Threading
+Imports DevExpress.Web.ASPxClasses
+Imports System.Web.Services
+
+Public Class hud
+    Inherits System.Web.UI.Page
+
+    Dim _NewDebtor As New Debtor
+    Dim _Transactions As List(Of Transactions)
+    Dim _ClosingBalances As List(Of Debtor_ClosingBalances)
+    Dim _AgeAnalysis As List(Of Debtor_AgeAnalysis)
+    Dim _PaymentPlans As List(Of Debtor_PaymentPlan)
+    Dim _ContactHistory As List(Of Debtor_ContactHistory)
+
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
+        Dim url As String = Request.Url.AbsoluteUri
+
+        If Not HttpContext.Current.IsDebuggingEnabled Then
+            If Session("username") = "" Then
+                If Not IsCallback Then
+                    Response.Redirect("~/Intranet/Default.aspx")
+                Else
+                    ASPxWebControl.RedirectOnCallback("~/Intranet/Default.aspx")
+                End If
+            End If
+        Else
+            Session("username") = "DANIEL"
+        End If
+
+        If Not IsPostBack Then
+            hdUsername.Value = Session("username")
+
+            txtPTPDate.Text = Format(Now, "yyyy-MM-dd")
+            txtPTPDate.MinDate = Format(Now, "yyyy-MM-dd")
+
+            cboResult.Items.Add("")
+            cboResult.Items.Add("Number does not exist / Incorrect number")
+            cboResult.Items.Add("Straight to Voice mail")
+            cboResult.Items.Add("No answer / Engaged / Call Back Later")
+            cboResult.Items.Add("PTP")
+            cboResult.Items.Add("Refuses to Pay")
+            cboResult.Items.Add("Under Investigation")
+
+            cboPreferredLanguage.Items.Add("")
+            cboPreferredLanguage.Items.Add("Zulu")
+            cboPreferredLanguage.Items.Add("Xhosa")
+            cboPreferredLanguage.Items.Add("Afrikaans")
+            cboPreferredLanguage.Items.Add("English")
+            cboPreferredLanguage.Items.Add("Sepedi")
+            cboPreferredLanguage.Items.Add("Setswana")
+            cboPreferredLanguage.Items.Add("Sotho")
+            cboPreferredLanguage.Items.Add("Tsonga")
+            cboPreferredLanguage.Items.Add("Swati")
+            cboPreferredLanguage.Items.Add("Venda")
+            cboPreferredLanguage.Items.Add("Ndebele")
+
+            If Session("collection_period") <> "" Then
+
+                Dim _dlNextDebtor As New NextDebtorBusinessLayer
+
+                Dim tmpDebtor As New Debtor
+                tmpDebtor = _dlNextDebtor.ReturnNextDebtor(Session("collection_period"))
+
+                If Not IsNothing(tmpDebtor) Then
+                    GetDebtor(tmpDebtor.AccountNumber)
+                End If
+            End If
+
+        End If
+
+    End Sub
+
+    Protected Sub ASPxCallback1_Callback(ByVal sender As Object, ByVal e As CallbackEventArgsBase)
+
+        If Session("username") = "" Then
+            If Not IsCallback Then
+                Response.Redirect("~/Intranet/Default.aspx")
+            Else
+                ASPxWebControl.RedirectOnCallback("~/Intranet/Default.aspx")
+            End If
+        End If
+
+        Dim sIPAddress As String
+
+        If hdWhichButton.Value = "BankingDetails" Then
+            Dim _dlDebtors As New ContactBusinessLayer
+            Dim message As String = "Rage Banking Details - Bank: Absa. Acc Name: Rage Distribution. Acc Num: 408 1269 231. " & _
+                                    "Branch: 632 005. Reference: " & txtAccountNumber.Text
+            _dlDebtors.SendSMS(txtAccountNumber.Text, txtContactNumber.Text, message, Session("username"), "Banking Details")
+            '_dlDebtors.SendSMS(txtAccountNumber.Text, "082-771-2322", message, Session("username"), "Banking Details")
+            lblStatus.Text = "SMS Sent!"
+
+            dxPopUp.ShowOnPageLoad = True
+
+            Exit Sub
+        End If
+
+        sIPAddress = Request.ServerVariables("HTTP_X_FORWARDED_FOR")
+        If sIPAddress = "" Then sIPAddress = Request.ServerVariables("REMOTE_ADDR")
+
+        If txtPTPDate.Text = "" Then
+            txtPTPDate.Text = Format(Now, "yyyy-MM-dd")
+        End If
+
+        Dim _ContactLog As New CollectionCallResult
+
+        _ContactLog.AccountNumber = txtAccountNumber.Text
+        _ContactLog.ContactResult = cboResult.Text
+        _ContactLog.CurrentContactLevel = hdContactLevel.Value
+
+        If cboPreferredLanguage.Text <> hdPreferredLanguage.Value Then
+            _ContactLog.PreferredLanguage = cboPreferredLanguage.Text
+        End If
+
+        If cboResult.Text = "PTP" Then
+            _ContactLog.PTPAmount = Format(Val(txtPTPAmount.Text), "0.00")
+            _ContactLog.PTPDate = txtPTPDate.Text & " 09:00:00"
+        Else
+            _ContactLog.PTPAmount = "0.00"
+            _ContactLog.PTPDate = ""
+        End If
+        _ContactLog.ContactNotes = txtNotes.Text
+
+        If hdTimeDataServed.Value <> "" Then
+            _ContactLog.TimeRecordServed = hdTimeDataServed.Value
+        End If
+
+        _ContactLog.FirstName = txtFirstName.Text
+        _ContactLog.ContactNumber = txtContactNumber.Text
+
+        _ContactLog.CollectionsPeriod = Session("collection_period")
+
+        Dim _NewContact As New ContactBusinessLayer
+        If _NewContact.ContactUpdate(Session("username"), _ContactLog, sIPAddress) Then
+
+            If hdWhichButton.Value = "Next" Then
+                ClearForm()
+
+                Dim _dlNextDebtor As New NextDebtorBusinessLayer
+
+                Dim tmpDebtor As New Debtor
+                tmpDebtor = _dlNextDebtor.ReturnNextDebtor(Session("collection_period"))
+
+                If Not IsNothing(tmpDebtor) Then
+                    GetDebtor(tmpDebtor.AccountNumber)
+                End If
+
+            Else
+                lblStatus.Text = "Account Updated!"
+
+                dxPopUp.ShowOnPageLoad = True
+
+                ClearForm()
+            End If
+        Else
+            dxPopUpError.ShowOnPageLoad = True
+        End If
+
+        CallsForToday.RefreshCalls()
+
+    End Sub
+
+    Private Sub hud_PreInit(sender As Object, e As System.EventArgs) Handles Me.PreInit
+        DevExpress.Web.ASPxClasses.ASPxWebControl.GlobalTheme = "Office2010Blue"
+    End Sub
+
+    Private Sub ClearForm()
+
+        txtAccountNumber.Text = ""
+        txtBalance.Text = ""
+        txtContactNumber.Text = ""
+        txtCreditLimit.Text = ""
+        txtFirstName.Text = ""
+        txtLastName.Text = ""
+        txtLastPaymentAmount.Text = ""
+        txtLastPaymentDate.Text = ""
+        txtLastSaleAmount.Text = ""
+        txtLastSaleDate.Text = ""
+        txtNotes.Text = ""
+        txtOverdue.Text = ""
+        txtOverdue.Text = ""
+        txtPTPAmount.Text = ""
+        txtPTPDate.Text = Format(Now, "yyyy-MM-dd")
+        lblContactLevel.Text = "0"
+        lblNextDate.Text = ""
+        txtNotes_cr.Text = ""
+        cboResult.Text = ""
+        txtConsumerRating.Text = ""
+
+        hdContactLevel.Value = ""
+        hdTimeDataServed.Value = ""
+        hdWhichButton.Value = ""
+
+        Session.Remove("_Transactions")
+        Session.Remove("_ClosingBalances")
+        Session.Remove("_AgeAnalysis")
+        Session.Remove("_PaymentPlans")
+        Session.Remove("_ContactHistory")
+
+        cboPreferredLanguage.Text = ""
+
+        hdPreferredLanguage.Value = ""
+
+        cmdBankingDetails.Enabled = False
+
+        'grdAgeAnalysis.DataSource = Nothing
+        'grdAgeAnalysis.DataBind()
+
+    End Sub
+
+    Protected Sub NameTextBox_Validation(ByVal sender As Object, ByVal e As ValidationEventArgs)
+        If (TryCast(e.Value, String)).Length < 2 Then
+            e.IsValid = False
+        End If
+    End Sub
+
+    Private Sub GetDebtor()
+
+        If Session("current_debtor") = "" Then
+            Exit Sub
+        End If
+
+        Session.Remove("_Transactions")
+        Session.Remove("_ClosingBalances")
+        Session.Remove("_AgeAnalysis")
+        Session.Remove("_PaymentPlans")
+        Session.Remove("_ContactHistory")
+
+        Dim _NewGetDebtor As DebtorsBusinessLayer = New DebtorsBusinessLayer
+
+        _NewDebtor = _NewGetDebtor.GetDebtor(Session("current_debtor"))
+
+        If Not IsNothing(_NewDebtor) Then
+            Session("_Transactions") = _NewDebtor.Transactions
+            Session("_ClosingBalances") = _NewDebtor.ClosingBalances
+            Session("_AgeAnalysis") = _NewDebtor.AgeAnalysis
+            Session("_PaymentPlans") = _NewDebtor.PaymentPlans
+            Session("_ContactHistory") = _NewDebtor.ContactHistory
+
+            txtAccountNumber.Text = _NewDebtor.AccountNumber
+            txtBalance.Text = _NewDebtor.Balance
+            txtContactNumber.Text = _NewDebtor.ContactNumber
+            txtCreditLimit.Text = _NewDebtor.CreditLimit
+            txtFirstName.Text = _NewDebtor.FirstName
+            txtLastName.Text = _NewDebtor.LastName
+            txtLastPaymentAmount.Text = _NewDebtor.LastPaymentAmount
+            txtLastPaymentDate.Text = _NewDebtor.LastPaymentDate
+            txtLastSaleAmount.Text = _NewDebtor.LastSaleAmount
+            txtLastSaleDate.Text = _NewDebtor.LastSaleDate
+            txtOverdue.Text = _NewDebtor.Overdue
+
+            txtLastPaymentAmount.Text = _NewDebtor.LastPaymentAmount
+            txtLastPaymentDate.Text = _NewDebtor.LastPaymentDate
+            txtLastSaleAmount.Text = _NewDebtor.LastSaleAmount
+            txtLastSaleDate.Text = _NewDebtor.LastSaleDate
+
+            lblContactLevel.Text = _NewDebtor.CurrentContactLevel
+            lblNextDate.Text = _NewDebtor.NextContactTime
+
+            hdContactLevel.Value = _NewDebtor.CurrentContactLevel
+
+            hdPreferredLanguage.Value = _NewDebtor.PreferredLanguage
+            cboPreferredLanguage.Text = _NewDebtor.PreferredLanguage
+
+            'This GetDebtor only gets called for the gridview refresh
+            'hdTimeDataServed.Value = Format(Now, "yyyy-MM-dd HH:mm:ss")
+
+            grdAgeAnalysis.DataBind()
+
+            cmdBankingDetails.Enabled = True
+
+        End If
+
+    End Sub
+
+    Private Sub GetDebtor(ByVal AccountNumber As String)
+
+        'AccountNumber = "100791120"
+
+        If AccountNumber = "" Then
+            Exit Sub
+        End If
+
+        Session("current_debtor") = AccountNumber
+
+        Session.Remove("_Transactions")
+        Session.Remove("_ClosingBalances")
+        Session.Remove("_AgeAnalysis")
+        Session.Remove("_PaymentPlans")
+        Session.Remove("_ContactHistory")
+
+        Dim _NewGetDebtor As DebtorsBusinessLayer = New DebtorsBusinessLayer
+
+        _NewDebtor = _NewGetDebtor.GetDebtor(AccountNumber)
+
+        If Not IsNothing(_NewDebtor) Then
+            Session("_Transactions") = _NewDebtor.Transactions
+            Session("_ClosingBalances") = _NewDebtor.ClosingBalances
+            Session("_AgeAnalysis") = _NewDebtor.AgeAnalysis
+            Session("_PaymentPlans") = _NewDebtor.PaymentPlans
+            Session("_ContactHistory") = _NewDebtor.ContactHistory
+
+            txtAccountNumber.Text = _NewDebtor.AccountNumber
+            txtBalance.Text = _NewDebtor.Balance
+            txtContactNumber.Text = _NewDebtor.ContactNumber
+            txtCreditLimit.Text = _NewDebtor.CreditLimit
+            txtFirstName.Text = _NewDebtor.FirstName
+            txtLastName.Text = _NewDebtor.LastName
+            txtLastPaymentAmount.Text = _NewDebtor.LastPaymentAmount
+            txtLastPaymentDate.Text = _NewDebtor.LastPaymentDate
+            txtLastSaleAmount.Text = _NewDebtor.LastSaleAmount
+            txtLastSaleDate.Text = _NewDebtor.LastSaleDate
+            txtOverdue.Text = _NewDebtor.Overdue
+
+            txtConsumerRating.Text = _NewDebtor.ConsumerRating
+
+            lblContactLevel.Text = _NewDebtor.CurrentContactLevel
+            lblNextDate.Text = _NewDebtor.NextContactTime
+
+            hdContactLevel.Value = _NewDebtor.CurrentContactLevel
+            hdTimeDataServed.Value = Format(Now, "yyyy-MM-dd HH:mm:ss")
+
+            hdPreferredLanguage.Value = _NewDebtor.PreferredLanguage
+            cboPreferredLanguage.Text = _NewDebtor.PreferredLanguage
+
+            grdAgeAnalysis.DataBind()
+
+            Dim tmpGrd As ASPxGridView
+            tmpGrd = ASPxNavBar1.Groups.FindByName("ContactHistory").Items(0).FindControl("grdHistory")
+            tmpGrd.DataBind()
+
+            tmpGrd = ASPxNavBar1.Groups.FindByName("Transactions").Items(0).FindControl("grdTransactions")
+            tmpGrd.DataSource = _Transactions
+            tmpGrd.DataBind()
+
+            tmpGrd = ASPxNavBar1.Groups.FindByName("ClosingBalances").Items(0).FindControl("grdClosingBalances")
+            tmpGrd.DataSource = _ClosingBalances
+            tmpGrd.DataBind()
+
+            tmpGrd = ASPxNavBar1.Groups.FindByName("PaymentPlans").Items(0).FindControl("grdPaymentPlans")
+            tmpGrd.DataSource = _PaymentPlans
+            tmpGrd.DataBind()
+
+            cmdBankingDetails.Enabled = True
+        End If
+
+    End Sub
+
+    Protected Sub gridHistory_DataBinding(ByVal sender As Object, ByVal e As EventArgs)
+        ' Assign the data source in grid_DataBinding
+
+        If IsNothing(Session("_ContactHistory")) Then
+            Exit Sub
+        End If
+
+        Dim tmpGrd As ASPxGridView
+
+        tmpGrd = ASPxNavBar1.Groups.FindByName("ContactHistory").Items(0).FindControl("grdHistory")
+        tmpGrd.DataSource = Session("_ContactHistory")
+
+        'grdTransactions.DataSource = _Transactions
+
+    End Sub
+
+    Protected Sub gridTransactions_DataBinding(ByVal sender As Object, ByVal e As EventArgs)
+        ' Assign the data source in grid_DataBinding
+
+        If IsNothing(Session("_Transactions")) Then
+            Exit Sub
+        End If
+
+        Dim tmpGrd As ASPxGridView
+
+        tmpGrd = ASPxNavBar1.Groups.FindByName("Transactions").Items(0).FindControl("grdTransactions")
+        tmpGrd.DataSource = Session("_Transactions")
+
+        'grdTransactions.DataSource = _Transactions
+
+    End Sub
+
+    Protected Sub gridAgeAnalysis_DataBinding(ByVal sender As Object, ByVal e As EventArgs)
+        ' Assign the data source in grid_DataBinding
+        If IsNothing(Session("_AgeAnalysis")) Then
+            Exit Sub
+        End If
+
+        grdAgeAnalysis.DataSource = Session("_AgeAnalysis")
+
+    End Sub
+
+    Protected Sub gridClosingBalances_DataBinding(ByVal sender As Object, ByVal e As EventArgs)
+        ' Assign the data source in grid_DataBinding
+        If IsNothing(Session("_ClosingBalances")) Then
+            Exit Sub
+        End If
+
+        Dim tmpGrd As ASPxGridView
+
+        tmpGrd = ASPxNavBar1.Groups.FindByName("ClosingBalances").Items(0).FindControl("grdClosingBalances")
+        tmpGrd.DataSource = Session("_ClosingBalances")
+
+        'grdClosingBalances.DataSource = _ClosingBalances
+
+    End Sub
+
+    Protected Sub gridPayments_DataBinding(ByVal sender As Object, ByVal e As EventArgs)
+        ' Assign the data source in grid_DataBinding
+        If IsNothing(Session("_PaymentPlans")) Then
+            Exit Sub
+        End If
+
+        Dim tmpGrd As ASPxGridView
+
+        tmpGrd = ASPxNavBar1.Groups.FindByName("PaymentPlans").Items(0).FindControl("grdPaymentPlans")
+        tmpGrd.DataSource = Session("_PaymentPlans")
+
+
+        'grdPaymentPlans.DataSource = _PaymentPlans
+
+    End Sub
+
+    Protected Sub Button2_Click(sender As Object, e As EventArgs) Handles btnTest2.Click
+        Dim _dlNextDebtor As New NextDebtorBusinessLayer
+
+        _dlNextDebtor.ReturnNextDebtor("60")
+
+    End Sub
+
+    Protected Sub cmdSave_Click(sender As Object, e As EventArgs) Handles cmdSave.Click
+
+    End Sub
+
+    Protected Sub cmdSaveAndNext_Click(sender As Object, e As EventArgs) Handles cmdSaveAndNext.Click
+
+    End Sub
+
+    Protected Sub ASPxNavBar2_ItemClick(source As Object, e As DevExpress.Web.ASPxNavBar.NavBarItemEventArgs) Handles ASPxNavBar2.ItemClick
+        Select Case e.Item.Name
+            Case "60days"
+                Session("collection_period") = "60"
+                'Response.Redirect("hud.aspx")
+            Case "90days"
+                Session("collection_period") = "90"
+                'Response.Redirect("hud.aspx")
+            Case "120days"
+                Session("collection_period") = "120"
+                'Response.Redirect("hud.aspx")
+            Case "150days"
+                Session("collection_period") = "150"
+                'Response.Redirect("hud.aspx")
+
+        End Select
+
+        Dim _dlNextDebtor As New NextDebtorBusinessLayer
+
+        Dim tmpDebtor As New Debtor
+        tmpDebtor = _dlNextDebtor.ReturnNextDebtor(Session("collection_period"))
+
+        If Not IsNothing(tmpDebtor) Then
+            GetDebtor(tmpDebtor.AccountNumber)
+            'GetDebtor("100014641") 'No payments plans
+        End If
+
+    End Sub
+
+    Protected Sub btnTest_Click(sender As Object, e As EventArgs) Handles btnTest.Click
+
+    End Sub
+End Class

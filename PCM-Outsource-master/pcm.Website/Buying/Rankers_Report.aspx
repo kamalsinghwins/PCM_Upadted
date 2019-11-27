@@ -1,0 +1,141 @@
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Intranet/Intranet.Master" CodeBehind="Rankers_Report.aspx.vb" Inherits="pcm.Website.Rankers_Report" %>
+
+<%@ Register Assembly="DevExpress.Web.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
+
+
+
+
+
+
+
+
+
+<%@ Register Src="~/Widgets/wid_datetime.ascx" TagName="DateTime" TagPrefix="widget" %>
+<%@ Register Src="~/Widgets/CallsForToday.ascx" TagName="CallsForToday" TagPrefix="widget" %>
+<%@ Register Src="~/Widgets/StockcodeManager/InventoryAndTax.ascx" TagName="InventoryAndTax"
+    TagPrefix="widget" %>
+
+
+
+<%@ Register Assembly="DevExpress.Web.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web" TagPrefix="dx1" %>
+
+
+
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        .auto-style2 {
+            width: 95px;
+        }
+    </style>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="SideHolder" runat="server">
+    <table>
+        <tr>
+            <td>
+                <dx:ASPxDockPanel runat="server" ID="ASPxDockPanel1" PanelUID="DateTime" HeaderText="Date & Time"
+                    Height="95px" ClientInstanceName="dateTimePanel" Width="230px" OwnerZoneUID="zone1">
+                    <ContentCollection>
+                        <dx:PopupControlContentControl ID="PopupControlContentControl1" runat="server" SupportsDisabledAttribute="True">
+                            <widget:DateTime ID="DateTimeWidget" runat="server" />
+                        </dx:PopupControlContentControl>
+                    </ContentCollection>
+                </dx:ASPxDockPanel>
+
+            </td>
+
+        </tr>
+    </table>
+    <dx:ASPxDockZone ID="ASPxDockZone1" runat="server" Width="229px" ZoneUID="zone1"
+        PanelSpacing="3px" ClientInstanceName="splitter" Height="400px">
+    </dx:ASPxDockZone>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="MainHolder" runat="server">
+
+    <dx:ASPxGridView ID="gvMaster" runat="server" AutoGenerateColumns="False" OnDataBinding="gvMaster_DataBinding" CssClass="date_panel" Width="98%"
+        EnableTheming="True">
+
+        <Columns>
+            <dx:GridViewDataTextColumn Caption="First Name" FieldName="first_name"
+                VisibleIndex="0">
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn Caption="Last Name" FieldName="last_name"
+                VisibleIndex="1">
+            </dx:GridViewDataTextColumn>
+            <%--<dx:GridViewDataTextColumn Caption="ID Number" FieldName="id_number"
+                VisibleIndex="2">
+            </dx:GridViewDataTextColumn>--%>
+            <dx:GridViewDataTextColumn Caption="Province" FieldName="state" Width="100px"
+                VisibleIndex="3">
+            </dx:GridViewDataTextColumn>
+          <%--  <dx:GridViewDataTextColumn Caption="EMail Address" FieldName="email_address" VisibleIndex="4" Width="220px">
+            </dx:GridViewDataTextColumn>--%>
+
+            <dx:GridViewDataTextColumn Caption="Is Female" FieldName="is_female" Width="80"
+                VisibleIndex="5">
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn Caption="Tier" FieldName="tier" VisibleIndex="6" Width="80">
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn Caption="Shoe Rnk" FieldName="user_ranking" VisibleIndex="7" Width="80">
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn Caption="Cloth. Rnk" FieldName="user_ranking_clothing" VisibleIndex="8" Width="80">
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn Caption="# Shoes" FieldName="shoes_count" VisibleIndex="9" Width="80">
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn Caption="# Cloth." FieldName="clothing_count" VisibleIndex="10" Width="80">
+            </dx:GridViewDataTextColumn>
+
+        </Columns>
+        <Templates>
+            <DetailRow>
+                <dx:ASPxGridView ID="gvDetail" runat="server"
+                    Width="100%" OnDataBinding="gvDetail_DataBinding" AutoGenerateColumns="False">
+                    <Columns>
+                        <dx:GridViewDataColumn FieldName="item_code" Caption="Item Code" VisibleIndex="1" />
+
+                        <dx:GridViewDataColumn FieldName="rating" Caption="Rating" VisibleIndex="2" />
+                        <dx:GridViewDataColumn FieldName="our_rating" Caption="Our Rating" VisibleIndex="3" />
+                        <dx:GridViewDataColumn FieldName="price_range" VisibleIndex="4" Caption="Price Range" />
+
+                        <dx:GridViewDataTextColumn FieldName="timestamp_of_rating" VisibleIndex="5" Caption="Timestamp">
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn Caption="Seconds" FieldName="time_spent_ranking" VisibleIndex="6">
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn Caption="Comments" FieldName="comments" VisibleIndex="7">
+                        </dx:GridViewDataTextColumn>
+                    </Columns>
+                    <Settings ShowFooter="True" />
+                    <SettingsPager PageSize="50">
+                    </SettingsPager>
+                </dx:ASPxGridView>
+            </DetailRow>
+        </Templates>
+
+        <SettingsBehavior ColumnResizeMode="Control" />
+
+        <SettingsPager PageSize="50">
+        </SettingsPager>
+
+        <Settings ShowFooter="True" ShowFilterRow="True" />
+
+        <SettingsDetail AllowOnlyOneMasterRowExpanded="False" ShowDetailRow="True" ExportMode="Expanded" />
+    </dx:ASPxGridView>
+    <table>
+        <tr>
+            <td>
+                <dx:ASPxButton ID="cmdExportPDF" runat="server" Text="Export to PDF" Width="164px" CssClass="date_panel">
+                </dx:ASPxButton>
+            </td>
+            <td>
+                <dx:ASPxButton ID="cmdExportExcel" runat="server" Text="Export to Excel" Width="164px" CssClass="date_panel">
+                </dx:ASPxButton>
+            </td>
+            <td>
+                <dx:ASPxButton ID="cmdExportCSV" runat="server" Text="Export to CSV" Width="164px" CssClass="date_panel">
+                </dx:ASPxButton>
+            </td>
+        </tr>
+    </table>
+    <dx:ASPxGridViewExporter ID="Exporter" runat="server"></dx:ASPxGridViewExporter>
+</asp:Content>

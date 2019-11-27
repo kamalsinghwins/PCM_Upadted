@@ -1,0 +1,1355 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>
+    </SchemaVersion>
+    <ProjectGuid>{EB67C1AB-4B7B-4252-9F76-50DBCFFA5C9F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>pcm.Website</RootNamespace>
+    <AssemblyName>pcm.Website</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MyType>Custom</MyType>
+    <UseIISExpress>true</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+    <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>pcm.Website.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>pcm.Website.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CodeCarvings.Piczard">
+      <HintPath>..\packages\CodeCarvings.Piczard.1.2.3.3\lib\CodeCarvings.Piczard.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v15.1.Core, Version=15.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Charts.v18.1.Core, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v15.1, Version=15.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.DataAccess.v15.1, Version=15.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v15.1.Core, Version=15.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v18.1.Core, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v15.1.Core, Version=15.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v18.1.Core, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v18.1.Core, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v15.1.Core, Version=15.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v15.1.Core, Version=15.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v18.1.Export, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v18.1.Core, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Docs.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v18.1.Core, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v15.1.Core, Version=15.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Web.ASPxPivotGrid.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Web.ASPxThemes.v15.1, Version=15.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.ASPxThemes.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Web.ASPxTreeList.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Web.v15.1, Version=15.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpo.v15.1, Version=15.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpo.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v15.1, Version=15.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v18.1.Core, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGauges.v15.1.Core, Version=15.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v18.1.Core, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.CodeParser.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v15.1, Version=15.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v15.1.Web, Version=15.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Web.Resources.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v18.1.Web.WebForms, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v18.1.Web, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.5.1.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.5.1\lib\net40\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql, Version=2.2.5.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\ActiveReports.Document.dll" />
+    <Content Include="bin\ActiveReports.Viewer6.dll" />
+    <Content Include="bin\Mono.Security.dll" />
+    <Content Include="bin\Npgsql.dll" />
+    <Content Include="Buying\Activate.aspx" />
+    <Content Include="Buying\Apply.aspx" />
+    <Content Include="Buying\BuyingReport.aspx" />
+    <Content Include="Buying\Default.aspx" />
+    <Content Include="Buying\FAQs.aspx" />
+    <Content Include="Buying\nojavascript.html" />
+    <Content Include="Buying\Password_Reset.aspx" />
+    <Content Include="Buying\PrintVoucher.aspx" />
+    <Content Include="Buying\ProductImageUpload.aspx" />
+    <Content Include="Buying\ProductSelection.aspx" />
+    <Content Include="Buying\Product_Preview.aspx" />
+    <Content Include="Buying\Rankers_Report.aspx" />
+    <Content Include="Buying\RedeemVouchers.aspx" />
+    <Content Include="Buying\terms_and_conditions.aspx" />
+    <Content Include="Buying\ViewVoucherDisplay.aspx" />
+    <Content Include="collections\ContactInvestigation.aspx" />
+    <Content Include="css\blitzer\images\animated-overlay.gif" />
+    <Content Include="css\blitzer\images\ui-bg_diagonals-thick_75_f3d8d8_40x40.png" />
+    <Content Include="css\blitzer\images\ui-bg_dots-small_65_a6a6a6_2x2.png" />
+    <Content Include="css\blitzer\images\ui-bg_flat_0_333333_40x100.png" />
+    <Content Include="css\blitzer\images\ui-bg_flat_65_ffffff_40x100.png" />
+    <Content Include="css\blitzer\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="css\blitzer\images\ui-bg_glass_55_fbf8ee_1x400.png" />
+    <Content Include="css\blitzer\images\ui-bg_highlight-hard_100_eeeeee_1x100.png" />
+    <Content Include="css\blitzer\images\ui-bg_highlight-hard_100_f6f6f6_1x100.png" />
+    <Content Include="css\blitzer\images\ui-bg_highlight-soft_15_cc0000_1x100.png" />
+    <Content Include="css\blitzer\images\ui-icons_004276_256x240.png" />
+    <Content Include="css\blitzer\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="css\blitzer\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="css\blitzer\jquery-ui-1.10.4.custom.css" />
+    <Content Include="css\blitzer\jquery-ui-1.10.4.custom.min.css" />
+    <Content Include="css\jssor.css" />
+    <Content Include="css\magnific-popup.css" />
+    <Content Include="css\Main.css" />
+    <Content Include="css\product_preview.css" />
+    <Content Include="css\product_selection_style.css" />
+    <Content Include="css\product_upload.css" />
+    <Content Include="css\responsive.css" />
+    <Content Include="css\video-js.css" />
+    <Content Include="css\video-js.min.css" />
+    <Content Include="HR\listing.aspx" />
+    <Content Include="HR\questions.aspx" />
+    <Content Include="HR\surveyerrors.aspx" />
+    <Content Include="Images\faq.png" />
+    <Content Include="Images\gift_card.jpg" />
+    <Content Include="Images\gift_card.png" />
+    <None Include="Images\header.jpg" />
+    <Content Include="Images\red_star.png" />
+    <Content Include="Images\small.png" />
+    <Content Include="Images\stars.png" />
+    <Content Include="Images\white_star.png" />
+    <Content Include="js\General\icons\bg_jRatingInfos.png" />
+    <Content Include="js\General\icons\small.png" />
+    <Content Include="js\General\icons\stars.png" />
+    <Content Include="js\General\jmasked_input.js" />
+    <Content Include="js\General\jquery-ui-1.10.4.custom.js" />
+    <Content Include="js\General\jquery-ui-1.10.4.custom.min.js" />
+    <Content Include="js\General\jquery.js" />
+    <Content Include="js\General\jquery.magnific-popup.min.js" />
+    <Content Include="js\General\jRating.jquery.css" />
+    <Content Include="Images\d06.png" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Intranet\Default.aspx" />
+    <Content Include="collections\hud.aspx" />
+    <Content Include="collections\investigations.aspx" />
+    <Content Include="Intranet\ManageUsers.aspx" />
+    <Content Include="Intranet\Welcome.aspx" />
+    <Content Include="Images\inner-logo.gif" />
+    <Content Include="Images\pl_small.png" />
+    <Content Include="Images\pl_smaller.png" />
+    <Content Include="Images\positive_live_logo.png" />
+    <Content Include="js\General\application.js" />
+    <Content Include="js\General\jRating.jquery.js" />
+    <Content Include="js\General\jRating.jquery.min.js" />
+    <Content Include="js\General\jssor.slider.js" />
+    <Content Include="js\General\jssor.utils.js" />
+    <Content Include="js\General\main.js" />
+    <Content Include="jquery\icons\bg_jRatingInfos.png" />
+    <Content Include="jquery\icons\small.png" />
+    <Content Include="jquery\icons\stars.png" />
+    <Content Include="js\Video\video.dev.js" />
+    <Content Include="js\Video\video.js" />
+    <Content Include="pcm\CardAssign.aspx" />
+    <Content Include="pcm\CreditApplication.aspx" />
+    <Content Include="pcm\DebtorsMaintainence.aspx" />
+    <Content Include="pcm\JournalTransactions.aspx" />
+    <Content Include="pcm\ManualTransactions.aspx" />
+    <Content Include="pcm\UploadPayments.aspx" />
+    <Content Include="piczardUserControls\simpleImageUploadUserControl\blank.gif" />
+    <Content Include="piczardUserControls\simpleImageUploadUserControl\SimpleImageUpload.ascx" />
+    <Content Include="piczardUserControls\simpleImageUploadUserControl\simpleImageUpload.js" />
+    <Content Include="piczardUserControls\simpleImageUploadUserControl\upload.aspx" />
+    <Content Include="piczardUserControls\simpleImageUploadUserControl\wait.gif" />
+    <Content Include="Positive\HeadOffice\BankRecon.aspx" />
+    <Content Include="Positive\HeadOffice\EmployeeReviews.aspx" />
+    <Content Include="Positive\HeadOffice\ManageEmployees.aspx" />
+    <Content Include="Positive\HeadOffice\ManagePositiveUsers.aspx" />
+    <Content Include="Positive\HeadOffice\SelfAssistHomeImages.aspx" />
+    <Content Include="questionnaire\ExamPage.aspx" />
+    <Content Include="questionnaire\Main.aspx" />
+    <Content Include="Reports\Collections\ReportsCollectionsByUser.aspx" />
+    <Content Include="Reports\HR\EmployeeReview.aspx" />
+    <Content Include="Reports\HR\QuestionnaireReport.aspx" />
+    <Content Include="Reports\Marketing\Marketing.aspx" />
+    <Content Include="Reports\PCM\AccountsOpenedByEmployee.aspx" />
+    <Content Include="Reports\PCM\AccountsOpenedByStore.aspx" />
+    <Content Include="Reports\PCM\AgeAnalysis.aspx" />
+    <Content Include="Reports\PCM\AgeAnalysisSummary.aspx" />
+    <Content Include="Reports\PCM\BadDebt.aspx" />
+    <Content Include="Reports\PCM\BadDebtByStore.aspx" />
+    <Content Include="Reports\PCM\CardSummary.aspx" />
+    <Content Include="Reports\PCM\DebtorHistory.aspx" />
+    <Content Include="Reports\PCM\DebtorSummary.aspx" />
+    <Content Include="Reports\PCM\GiftCardDetails.aspx" />
+    <Content Include="Reports\PCM\IncomingManualSaleSMS.aspx" />
+    <Content Include="Reports\PCM\IncomingRageSMS.aspx" />
+    <Content Include="Reports\PCM\IncomingSMS.aspx" />
+    <Content Include="Reports\PCM\NewAccounts.aspx" />
+    <Content Include="Reports\PCM\ReportInterestTransactions.aspx" />
+    <Content Include="Reports\PCM\SalesPaymentsPerAccount.aspx" />
+    <Content Include="Reports\PCM\TransactionList.aspx" />
+    <Content Include="Reports\PCM\TransactionsByStore.aspx" />
+    <None Include="Resources\xrPictureBox2.Image.jpg" />
+    <Content Include="Reports\PCM\VintageReport.aspx" />
+    <Content Include="Reports\Positive\BankReconReport.aspx" />
+    <Content Include="Reports\Positive\CashCards.aspx" />
+    <Content Include="Reports\Positive\CashCardSummary.aspx" />
+    <Content Include="Reports\Positive\CategoryReport.aspx" />
+    <Content Include="Reports\Positive\SingleStockOnHandReport.aspx" />
+    <Content Include="store-videos.aspx" />
+    <Content Include="store_videos.html" />
+    <Content Include="view_statement_new.aspx" />
+    <Content Include="ws\headoffice\Maintenance.asmx" />
+    <Content Include="ws\headoffice\RTT.asmx" />
+    <Content Include="ws\self-assist\self_assist.asmx" />
+    <Content Include="ws\shop\shop_downloads.asmx" />
+    <Content Include="ws\shop\screensaver.asmx" />
+    <Content Include="Positive\HeadOffice\ScreensaverImages.aspx" />
+    <Content Include="Reports\Collections\ReportsCollectionAdmin.aspx" />
+    <Content Include="Reports\Collections\ReportsPaymentsAndContacts.aspx" />
+    <Content Include="Reports\Collections\ReportsSMSSending.aspx" />
+    <Content Include="Reports\Positive\grp_Turnover.aspx" />
+    <Content Include="Reports\Positive\LastUpdateData.aspx" />
+    <Content Include="Positive\HeadOffice\PrePacks.aspx" />
+    <Content Include="js\Positive\HeadOffice\StockcodeManager.js" />
+    <Content Include="Positive\HeadOffice\SizeGrids.aspx" />
+    <Content Include="Positive\HeadOffice\StockcodeManager.aspx" />
+    <Content Include="Positive\HeadOffice\UploadAllocations.aspx" />
+    <Content Include="Reports\PCM\ReportsAgingSummary.aspx" />
+    <Content Include="collections\rep_WebServiceLogs.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="get_ip.aspx" />
+    <Content Include="js\Collections\contactinvestigation.js" />
+    <Content Include="js\Collections\hud.js" />
+    <Content Include="Reports\Collections\ReportsUsers.aspx" />
+    <Content Include="Reports\Collections\ReportsUsersSummary.aspx" />
+    <Content Include="pcm\shop_statement.asmx" />
+    <Content Include="Reports\Positive\CashCardCustomersTransactions.aspx" />
+    <Content Include="Reports\Positive\WebServiceLogs.aspx" />
+    <Content Include="packages.config" />
+    <Content Include="Intranet\Intranet.Master" />
+    <Content Include="ws\panacea\get_sms.aspx" />
+    <Content Include="ws\shop\shop_transactions.asmx" />
+    <Content Include="css\video-js.less" />
+    <None Include="js\General\jquery-2.0.3.intellisense.js" />
+    <Content Include="js\General\jquery-2.0.3.js" />
+    <Content Include="js\General\jquery-2.0.3.min.js" />
+    <Content Include="testing.aspx" />
+    <Content Include="css\collections.css" />
+    <Content Include="css\Errors.css" />
+    <Content Include="css\layout.css" />
+    <Content Include="css\style.css" />
+    <Content Include="css\widgets.css" />
+    <Content Include="Data\8d6ea72a-204c-4fa9-8ad2-387ba9e2a726 - Copy.XML.txt" />
+    <Content Include="Data\accounts.xml" />
+    <Content Include="Data\data.xml" />
+    <Content Include="Images\ASPxRoundPanel\655510495\BottomLeftCorner.png" />
+    <Content Include="Images\ASPxRoundPanel\655510495\BottomRightCorner.png" />
+    <Content Include="Images\ASPxRoundPanel\655510495\HeaderContent.png" />
+    <Content Include="Images\ASPxRoundPanel\655510495\HeaderLeftEdge.png" />
+    <Content Include="Images\ASPxRoundPanel\655510495\HeaderRightEdge.png" />
+    <Content Include="Images\ASPxRoundPanel\655510495\NoHeaderTopLeftCorner.png" />
+    <Content Include="Images\ASPxRoundPanel\655510495\NoHeaderTopRightCorner.png" />
+    <Content Include="Images\ASPxRoundPanel\655510495\TopLeftCorner.png" />
+    <Content Include="Images\ASPxRoundPanel\655510495\TopRightCorner.png" />
+    <Content Include="Images\help.png" />
+    <Content Include="Images\rage-logo-statement.png" />
+    <Content Include="Images\rage-logo.png" />
+    <Content Include="Images\Rage_Online Statement.png" />
+    <Content Include="Images\rage_online_statement.png" />
+    <Content Include="Images\statement_header.jpg" />
+    <Content Include="Images\statement_header.png" />
+    <Content Include="Images\statement_headerbig.png" />
+    <Content Include="Images\statement_right_panel.png" />
+    <Content Include="Images\statement_right_panel_bottom.png" />
+    <Content Include="Logs\2013-05-02.txt" />
+    <Content Include="Logs\2013-05-03.txt" />
+    <Content Include="Logs\2013-05-06.txt" />
+    <Content Include="Logs\2013-05-07.txt" />
+    <Content Include="Logs\2013-05-08.txt" />
+    <Content Include="obj\Debug\TempPE\App_GlobalResources.repDetails.designer.vb.dll" />
+    <Content Include="obj\Debug\TempPE\App_GlobalResources.repHeaders.designer.vb.dll" />
+    <Content Include="obj\Debug\TempPE\App_GlobalResources.repStatement.designer.vb.dll" />
+    <Content Include="js\Collections\application.js" />
+    <Content Include="js\General\jquery-1.9.1.min.js" />
+    <Content Include="js\General\jquery-ui-1.10.2.custom.min.js" />
+    <Content Include="js\General\jquery-ui-timepicker-addon.js" />
+    <Content Include="js\General\jquery.nicescroll.min.js" />
+    <Content Include="js\General\jquery.uniform.min.js" />
+    <Content Include="js\General\json2.js" />
+    <Content Include="js\General\sliderAccess.js" />
+    <Content Include="update.txt" />
+    <Content Include="view_statement.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Widgets\CallsForToday.ascx" />
+    <Content Include="Widgets\date.ascx" />
+    <Content Include="Widgets\wid_datetime.ascx" />
+    <Content Include="Widgets\PTPsForToday.ascx" />
+    <Content Include="Widgets\StockcodeManager\InventoryAndTax.ascx" />
+    <Content Include="Widgets\test.ascx" />
+    <Content Include="ws\headoffice\Dispatch.asmx" />
+    <Content Include="ws\pcm\AccountsProcessing.asmx" />
+    <Content Include="ws\pcm\shop_statement.asmx" />
+    <Content Include="ws\shop\cashcards.asmx" />
+    <Content Include="js\General\jquery-2.0.3.min.map" />
+    <Content Include="piczardUserControls\simpleImageUploadUserControl\preview.ashx" />
+    <Content Include="piczardUserControls\simpleImageUploadUserControl\uploadMonitor.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Buying\Activate.aspx.designer.vb">
+      <DependentUpon>Activate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Buying\Activate.aspx.vb">
+      <DependentUpon>Activate.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Buying\Apply.aspx.designer.vb">
+      <DependentUpon>Apply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Buying\Apply.aspx.vb">
+      <DependentUpon>Apply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Buying\BuyingReport.aspx.designer.vb">
+      <DependentUpon>BuyingReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Buying\BuyingReport.aspx.vb">
+      <DependentUpon>BuyingReport.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Buying\Default.aspx.designer.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Buying\Default.aspx.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Buying\FAQs.aspx.designer.vb">
+      <DependentUpon>FAQs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Buying\FAQs.aspx.vb">
+      <DependentUpon>FAQs.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Buying\Password_Reset.aspx.designer.vb">
+      <DependentUpon>Password_Reset.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Buying\Password_Reset.aspx.vb">
+      <DependentUpon>Password_Reset.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Buying\PrintVoucher.aspx.designer.vb">
+      <DependentUpon>PrintVoucher.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Buying\PrintVoucher.aspx.vb">
+      <DependentUpon>PrintVoucher.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Buying\ProductImageUpload.aspx.designer.vb">
+      <DependentUpon>ProductImageUpload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Buying\ProductImageUpload.aspx.vb">
+      <DependentUpon>ProductImageUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Buying\ProductSelection.aspx.designer.vb">
+      <DependentUpon>ProductSelection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Buying\ProductSelection.aspx.vb">
+      <DependentUpon>ProductSelection.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Buying\Product_Preview.aspx.designer.vb">
+      <DependentUpon>Product_Preview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Buying\Product_Preview.aspx.vb">
+      <DependentUpon>Product_Preview.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Buying\Rankers_Report.aspx.designer.vb">
+      <DependentUpon>Rankers_Report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Buying\Rankers_Report.aspx.vb">
+      <DependentUpon>Rankers_Report.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Buying\RedeemVouchers.aspx.designer.vb">
+      <DependentUpon>RedeemVouchers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Buying\RedeemVouchers.aspx.vb">
+      <DependentUpon>RedeemVouchers.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Buying\terms_and_conditions.aspx.designer.vb">
+      <DependentUpon>terms_and_conditions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Buying\terms_and_conditions.aspx.vb">
+      <DependentUpon>terms_and_conditions.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Buying\ViewVoucher.vb" />
+    <Compile Include="Buying\ViewVoucherDisplay.aspx.designer.vb">
+      <DependentUpon>ViewVoucherDisplay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Buying\ViewVoucherDisplay.aspx.vb">
+      <DependentUpon>ViewVoucherDisplay.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="HR\listing.aspx.designer.vb">
+      <DependentUpon>listing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HR\listing.aspx.vb">
+      <DependentUpon>listing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HR\questions.aspx.designer.vb">
+      <DependentUpon>questions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HR\questions.aspx.vb">
+      <DependentUpon>questions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HR\surveyerrors.aspx.designer.vb">
+      <DependentUpon>surveyerrors.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HR\surveyerrors.aspx.vb">
+      <DependentUpon>surveyerrors.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Intranet\collections.Master.designer.vb">
+      <DependentUpon>collections.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Intranet\collections.Master.vb">
+      <DependentUpon>collections.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="collections\ContactInvestigation.aspx.designer.vb">
+      <DependentUpon>ContactInvestigation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="collections\ContactInvestigation.aspx.vb">
+      <DependentUpon>ContactInvestigation.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Intranet\Default.aspx.designer.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="collections\hud.aspx.designer.vb">
+      <DependentUpon>hud.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="collections\hud.aspx.vb">
+      <DependentUpon>hud.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="collections\investigations.aspx.designer.vb">
+      <DependentUpon>investigations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="collections\investigations.aspx.vb">
+      <DependentUpon>investigations.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Intranet\Intranet.Master.designer.vb">
+      <DependentUpon>Intranet.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Intranet\Intranet.Master.vb">
+      <DependentUpon>Intranet.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Intranet\ManageUsers.aspx.designer.vb">
+      <DependentUpon>ManageUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Intranet\ManageUsers.aspx.vb">
+      <DependentUpon>ManageUsers.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Intranet\Welcome.aspx.designer.vb">
+      <DependentUpon>Welcome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Intranet\Welcome.aspx.vb">
+      <DependentUpon>Welcome.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="pcm\CardAssign.aspx.designer.vb">
+      <DependentUpon>CardAssign.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pcm\CardAssign.aspx.vb">
+      <DependentUpon>CardAssign.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="pcm\CreditApplication.aspx.designer.vb">
+      <DependentUpon>CreditApplication.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pcm\CreditApplication.aspx.vb">
+      <DependentUpon>CreditApplication.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="pcm\DebtorsMaintainence.aspx.designer.vb">
+      <DependentUpon>DebtorsMaintainence.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pcm\DebtorsMaintainence.aspx.vb">
+      <DependentUpon>DebtorsMaintainence.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pcm\JournalTransactions.aspx.designer.vb">
+      <DependentUpon>JournalTransactions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pcm\JournalTransactions.aspx.vb">
+      <DependentUpon>JournalTransactions.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="pcm\ManualTransactions.aspx.designer.vb">
+      <DependentUpon>ManualTransactions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pcm\ManualTransactions.aspx.vb">
+      <DependentUpon>ManualTransactions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pcm\UploadPayments.aspx.designer.vb">
+      <DependentUpon>UploadPayments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pcm\UploadPayments.aspx.vb">
+      <DependentUpon>UploadPayments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="piczardUserControls\simpleImageUploadUserControl\SimpleImageUpload.ascx.designer.vb">
+      <DependentUpon>SimpleImageUpload.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="piczardUserControls\simpleImageUploadUserControl\SimpleImageUpload.ascx.vb">
+      <DependentUpon>SimpleImageUpload.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="piczardUserControls\simpleImageUploadUserControl\upload.aspx.designer.vb">
+      <DependentUpon>upload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="piczardUserControls\simpleImageUploadUserControl\upload.aspx.vb">
+      <DependentUpon>upload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Positive\HeadOffice\BankRecon.aspx.designer.vb">
+      <DependentUpon>BankRecon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Positive\HeadOffice\BankRecon.aspx.vb">
+      <DependentUpon>BankRecon.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Positive\HeadOffice\EmployeeReviews.aspx.designer.vb">
+      <DependentUpon>EmployeeReviews.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Positive\HeadOffice\EmployeeReviews.aspx.vb">
+      <DependentUpon>EmployeeReviews.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Positive\HeadOffice\ManageEmployees.aspx.designer.vb">
+      <DependentUpon>ManageEmployees.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Positive\HeadOffice\ManageEmployees.aspx.vb">
+      <DependentUpon>ManageEmployees.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Positive\HeadOffice\ManagePositiveUsers.aspx.designer.vb">
+      <DependentUpon>ManagePositiveUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Positive\HeadOffice\ManagePositiveUsers.aspx.vb">
+      <DependentUpon>ManagePositiveUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Positive\HeadOffice\SelfAssistHomeImages.aspx.designer.vb">
+      <DependentUpon>SelfAssistHomeImages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Positive\HeadOffice\SelfAssistHomeImages.aspx.vb">
+      <DependentUpon>SelfAssistHomeImages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="questionnaire\ExamPage.aspx.designer.vb">
+      <DependentUpon>ExamPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="questionnaire\ExamPage.aspx.vb">
+      <DependentUpon>ExamPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="questionnaire\Main.aspx.designer.vb">
+      <DependentUpon>Main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="questionnaire\Main.aspx.vb">
+      <DependentUpon>Main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Collections\ReportsCollectionsByUser.aspx.designer.vb">
+      <DependentUpon>ReportsCollectionsByUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Collections\ReportsCollectionsByUser.aspx.vb">
+      <DependentUpon>ReportsCollectionsByUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\HR\EmployeeReview.aspx.designer.vb">
+      <DependentUpon>EmployeeReview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\HR\EmployeeReview.aspx.vb">
+      <DependentUpon>EmployeeReview.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\HR\QuestionnaireReport.aspx.designer.vb">
+      <DependentUpon>QuestionnaireReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\HR\QuestionnaireReport.aspx.vb">
+      <DependentUpon>QuestionnaireReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Marketing\Marketing.aspx.designer.vb">
+      <DependentUpon>Marketing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Marketing\Marketing.aspx.vb">
+      <DependentUpon>Marketing.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PCM\AccountsOpenedByEmployee.aspx.designer.vb">
+      <DependentUpon>AccountsOpenedByEmployee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PCM\AccountsOpenedByEmployee.aspx.vb">
+      <DependentUpon>AccountsOpenedByEmployee.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PCM\AccountsOpenedByStore.aspx.designer.vb">
+      <DependentUpon>AccountsOpenedByStore.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PCM\AccountsOpenedByStore.aspx.vb">
+      <DependentUpon>AccountsOpenedByStore.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PCM\AgeAnalysis.aspx.designer.vb">
+      <DependentUpon>AgeAnalysis.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PCM\AgeAnalysis.aspx.vb">
+      <DependentUpon>AgeAnalysis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PCM\AgeAnalysisSummary.aspx.designer.vb">
+      <DependentUpon>AgeAnalysisSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PCM\AgeAnalysisSummary.aspx.vb">
+      <DependentUpon>AgeAnalysisSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PCM\BadDebt.aspx.designer.vb">
+      <DependentUpon>BadDebt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PCM\BadDebt.aspx.vb">
+      <DependentUpon>BadDebt.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PCM\BadDebtByStore.aspx.designer.vb">
+      <DependentUpon>BadDebtByStore.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PCM\BadDebtByStore.aspx.vb">
+      <DependentUpon>BadDebtByStore.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PCM\CardSummary.aspx.designer.vb">
+      <DependentUpon>CardSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PCM\CardSummary.aspx.vb">
+      <DependentUpon>CardSummary.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PCM\DebtorHistory.aspx.designer.vb">
+      <DependentUpon>DebtorHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PCM\DebtorHistory.aspx.vb">
+      <DependentUpon>DebtorHistory.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PCM\DebtorSummary.aspx.designer.vb">
+      <DependentUpon>DebtorSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PCM\DebtorSummary.aspx.vb">
+      <DependentUpon>DebtorSummary.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PCM\GiftCardDetails.aspx.designer.vb">
+      <DependentUpon>GiftCardDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PCM\GiftCardDetails.aspx.vb">
+      <DependentUpon>GiftCardDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PCM\IncomingManualSaleSMS.aspx.designer.vb">
+      <DependentUpon>IncomingManualSaleSMS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PCM\IncomingManualSaleSMS.aspx.vb">
+      <DependentUpon>IncomingManualSaleSMS.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PCM\IncomingRageSMS.aspx.designer.vb">
+      <DependentUpon>IncomingRageSMS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PCM\IncomingRageSMS.aspx.vb">
+      <DependentUpon>IncomingRageSMS.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PCM\IncomingSMS.aspx.designer.vb">
+      <DependentUpon>IncomingSMS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PCM\IncomingSMS.aspx.vb">
+      <DependentUpon>IncomingSMS.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PCM\NewAccounts.aspx.designer.vb">
+      <DependentUpon>NewAccounts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PCM\NewAccounts.aspx.vb">
+      <DependentUpon>NewAccounts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PCM\ReportInterestTransactions.aspx.designer.vb">
+      <DependentUpon>ReportInterestTransactions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PCM\ReportInterestTransactions.aspx.vb">
+      <DependentUpon>ReportInterestTransactions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PCM\SalesPaymentsPerAccount.aspx.designer.vb">
+      <DependentUpon>SalesPaymentsPerAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PCM\SalesPaymentsPerAccount.aspx.vb">
+      <DependentUpon>SalesPaymentsPerAccount.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PCM\TransactionList.aspx.designer.vb">
+      <DependentUpon>TransactionList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PCM\TransactionList.aspx.vb">
+      <DependentUpon>TransactionList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PCM\TransactionsByStore.aspx.designer.vb">
+      <DependentUpon>TransactionsByStore.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PCM\TransactionsByStore.aspx.vb">
+      <DependentUpon>TransactionsByStore.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PCM\VintageReport.aspx.designer.vb">
+      <DependentUpon>VintageReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PCM\VintageReport.aspx.vb">
+      <DependentUpon>VintageReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Positive\BankReconReport.aspx.designer.vb">
+      <DependentUpon>BankReconReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Positive\BankReconReport.aspx.vb">
+      <DependentUpon>BankReconReport.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Positive\CashCards.aspx.designer.vb">
+      <DependentUpon>CashCards.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Positive\CashCards.aspx.vb">
+      <DependentUpon>CashCards.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Positive\CashCardSummary.aspx.designer.vb">
+      <DependentUpon>CashCardSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Positive\CashCardSummary.aspx.vb">
+      <DependentUpon>CashCardSummary.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Positive\CategoryReport.aspx.designer.vb">
+      <DependentUpon>CategoryReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Positive\CategoryReport.aspx.vb">
+      <DependentUpon>CategoryReport.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Positive\SingleStockOnHandReport.aspx.designer.vb">
+      <DependentUpon>SingleStockOnHandReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Positive\SingleStockOnHandReport.aspx.vb">
+      <DependentUpon>SingleStockOnHandReport.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="statement.Designer.vb">
+      <DependentUpon>statement.vb</DependentUpon>
+    </Compile>
+    <Compile Include="statement.vb" />
+    <Compile Include="statement_details.Designer.vb">
+      <DependentUpon>statement_details.vb</DependentUpon>
+    </Compile>
+    <Compile Include="statement_details.vb" />
+    <Compile Include="store-videos.aspx.designer.vb">
+      <DependentUpon>store-videos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="store-videos.aspx.vb">
+      <DependentUpon>store-videos.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="view_statement_new.aspx.designer.vb">
+      <DependentUpon>view_statement_new.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="view_statement_new.aspx.vb">
+      <DependentUpon>view_statement_new.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ws\headoffice\Maintenance.asmx.vb">
+      <DependentUpon>Maintenance.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ws\headoffice\RTT.asmx.vb">
+      <DependentUpon>RTT.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ws\self-assist\self_assist.asmx.vb">
+      <DependentUpon>self_assist.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ws\shop\shop_downloads.asmx.vb">
+      <DependentUpon>shop_downloads.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ws\shop\screensaver.asmx.vb">
+      <DependentUpon>screensaver.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Positive\HeadOffice\ScreensaverImages.aspx.designer.vb">
+      <DependentUpon>ScreensaverImages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Positive\HeadOffice\ScreensaverImages.aspx.vb">
+      <DependentUpon>ScreensaverImages.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Collections\ReportsCollectionAdmin.aspx.designer.vb">
+      <DependentUpon>ReportsCollectionAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Collections\ReportsCollectionAdmin.aspx.vb">
+      <DependentUpon>ReportsCollectionAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Collections\ReportsPaymentsAndContacts.aspx.designer.vb">
+      <DependentUpon>ReportsPaymentsAndContacts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Collections\ReportsPaymentsAndContacts.aspx.vb">
+      <DependentUpon>ReportsPaymentsAndContacts.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Collections\ReportsSMSSending.aspx.designer.vb">
+      <DependentUpon>ReportsSMSSending.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Collections\ReportsSMSSending.aspx.vb">
+      <DependentUpon>ReportsSMSSending.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Positive\grp_Turnover.aspx.designer.vb">
+      <DependentUpon>grp_Turnover.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Positive\grp_Turnover.aspx.vb">
+      <DependentUpon>grp_Turnover.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Positive\LastUpdateData.aspx.designer.vb">
+      <DependentUpon>LastUpdateData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Positive\LastUpdateData.aspx.vb">
+      <DependentUpon>LastUpdateData.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Positive\HeadOffice\PrePacks.aspx.designer.vb">
+      <DependentUpon>PrePacks.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Positive\HeadOffice\PrePacks.aspx.vb">
+      <DependentUpon>PrePacks.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Positive\HeadOffice\SizeGrids.aspx.designer.vb">
+      <DependentUpon>SizeGrids.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Positive\HeadOffice\SizeGrids.aspx.vb">
+      <DependentUpon>SizeGrids.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Positive\HeadOffice\StockcodeManager.aspx.designer.vb">
+      <DependentUpon>StockcodeManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Positive\HeadOffice\StockcodeManager.aspx.vb">
+      <DependentUpon>StockcodeManager.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Positive\HeadOffice\UploadAllocations.aspx.designer.vb">
+      <DependentUpon>UploadAllocations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Positive\HeadOffice\UploadAllocations.aspx.vb">
+      <DependentUpon>UploadAllocations.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PCM\ReportsAgingSummary.aspx.designer.vb">
+      <DependentUpon>ReportsAgingSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PCM\ReportsAgingSummary.aspx.vb">
+      <DependentUpon>ReportsAgingSummary.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Collections\ReportsUsers.aspx.designer.vb">
+      <DependentUpon>ReportsUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Collections\ReportsUsers.aspx.vb">
+      <DependentUpon>ReportsUsers.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Collections\ReportsUsersSummary.aspx.designer.vb">
+      <DependentUpon>ReportsUsersSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Collections\ReportsUsersSummary.aspx.vb">
+      <DependentUpon>ReportsUsersSummary.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="collections\rep_WebServiceLogs.aspx.designer.vb">
+      <DependentUpon>rep_WebServiceLogs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="collections\rep_WebServiceLogs.aspx.vb">
+      <DependentUpon>rep_WebServiceLogs.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="get_ip.aspx.designer.vb">
+      <DependentUpon>get_ip.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="get_ip.aspx.vb">
+      <DependentUpon>get_ip.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="pcm\shop_statement.asmx.vb">
+      <DependentUpon>shop_statement.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Positive\CashCardCustomersTransactions.aspx.designer.vb">
+      <DependentUpon>CashCardCustomersTransactions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Positive\CashCardCustomersTransactions.aspx.vb">
+      <DependentUpon>CashCardCustomersTransactions.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Positive\WebServiceLogs.aspx.designer.vb">
+      <DependentUpon>WebServiceLogs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Positive\WebServiceLogs.aspx.vb">
+      <DependentUpon>WebServiceLogs.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="testing.aspx.designer.vb">
+      <DependentUpon>testing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="testing.aspx.vb">
+      <DependentUpon>testing.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Old_App_Code\clsLogEntry.vb" />
+    <Compile Include="Old_App_Code\clsLogin.vb" />
+    <Compile Include="Old_App_Code\clsNPDatabase.vb" />
+    <Compile Include="Old_App_Code\clsRegality.vb" />
+    <Compile Include="Old_App_Code\clsUTIL.vb" />
+    <Compile Include="Old_App_Code\clsWriteStatement.vb" />
+    <Compile Include="Old_App_Code\repDetails.vb" />
+    <Compile Include="Old_App_Code\repHeaders.vb" />
+    <Compile Include="Old_App_Code\repStatement.vb" />
+    <Compile Include="Old_App_Code\rep_test.vb" />
+    <Compile Include="App_GlobalResources\repDetails.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>repDetails.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\repHeaders.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>repHeaders.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\repStatement.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>repStatement.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Intranet\Default.aspx.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\MyExtensions\MyWebExtension.vb">
+      <VBMyExtensionTemplateID>Microsoft.VisualBasic.Web.MyExtension</VBMyExtensionTemplateID>
+      <VBMyExtensionTemplateVersion>1.0.0.0</VBMyExtensionTemplateVersion>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="update.txt.designer.vb">
+      <DependentUpon>update.txt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="update.txt.vb">
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="view_statement.aspx.designer.vb">
+      <DependentUpon>view_statement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="view_statement.aspx.vb">
+      <DependentUpon>view_statement.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Widgets\CallsForToday.ascx.designer.vb">
+      <DependentUpon>CallsForToday.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\CallsForToday.ascx.vb">
+      <DependentUpon>CallsForToday.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Widgets\date.ascx.designer.vb">
+      <DependentUpon>date.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\date.ascx.vb">
+      <DependentUpon>date.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Widgets\wid_datetime.ascx.designer.vb">
+      <DependentUpon>wid_datetime.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\wid_datetime.ascx.vb">
+      <DependentUpon>wid_datetime.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Widgets\PTPsForToday.ascx.designer.vb">
+      <DependentUpon>PTPsForToday.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\PTPsForToday.ascx.vb">
+      <DependentUpon>PTPsForToday.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Widgets\StockcodeManager\InventoryAndTax.ascx.designer.vb">
+      <DependentUpon>InventoryAndTax.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\StockcodeManager\InventoryAndTax.ascx.vb">
+      <DependentUpon>InventoryAndTax.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Widgets\test.ascx.designer.vb">
+      <DependentUpon>test.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\test.ascx.vb">
+      <DependentUpon>test.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ws\headoffice\Dispatch.asmx.vb">
+      <DependentUpon>Dispatch.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ws\panacea\get_sms.aspx.designer.vb">
+      <DependentUpon>get_sms.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ws\panacea\get_sms.aspx.vb">
+      <DependentUpon>get_sms.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ws\pcm\AccountsProcessing.asmx.vb">
+      <DependentUpon>AccountsProcessing.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ws\pcm\shop_statement.asmx.vb">
+      <DependentUpon>shop_statement.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ws\shop\cashcards.asmx.vb">
+      <DependentUpon>cashcards.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ws\shop\shop_transactions.asmx.vb">
+      <DependentUpon>shop_transactions.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraReport1.Designer.vb">
+      <DependentUpon>XtraReport1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraReport1.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\repDetails.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>repDetails.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_GlobalResources\repHeaders.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>repHeaders.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_GlobalResources\repStatement.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>repStatement.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Buying\ViewVoucher.resx">
+      <DependentUpon>ViewVoucher.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="licenses.licx" />
+    <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Old_App_Code\repDetails.resx">
+      <DependentUpon>repDetails.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Old_App_Code\repHeaders.resx">
+      <DependentUpon>repHeaders.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="statement.resx">
+      <DependentUpon>statement.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="statement_details.resx">
+      <DependentUpon>statement_details.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\ActiveReports.Viewer6.dll.refresh" />
+    <Content Include="Intranet\collections.Master" />
+    <Content Include="js\General\jssor.core.js" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\PublishProfiles\Profile1.pubxml" />
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Code\" />
+    <Folder Include="App_Data\UploadTemp\" />
+    <Folder Include="Positive\General\" />
+    <Folder Include="Uploaded\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entities\Entities.vbproj">
+      <Project>{d2426a07-c663-454e-9238-0ba57047acd9}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\pcm.BusinessLayer\pcm.BusinessLayer.vbproj">
+      <Project>{3b11f319-e300-4e9b-aece-41bfb0a8cef0}</Project>
+      <Name>pcm.BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\pcm.DataLayer\pcm.DataLayer.vbproj">
+      <Project>{2b763bb2-d69a-4fde-ae87-feee7df7e255}</Project>
+      <Name>pcm.DataLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>20303</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:20301/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,49 @@
+﻿Imports DevExpress.Web.ASPxClasses
+Imports pcm.BusinessLayer
+
+Public Class _Default1
+    Inherits System.Web.UI.Page
+
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
+        Dim url As String = Request.Url.AbsoluteUri
+
+        'If Not url.Contains("localhost") Then
+        '    If Session("username") = "" Then
+        '        If Not IsCallback Then
+        '            Response.Redirect("~/Intranet/Default.aspx")
+        '        Else
+        '            ASPxWebControl.RedirectOnCallback("~/Intranet/Default.aspx")
+        '        End If
+        '    End If
+        'Else
+        '    Session("current_company") = "010"
+        'End If
+
+    End Sub
+
+    Protected Sub cmdLogin_Click(sender As Object, e As EventArgs) Handles cmdLogin.Click
+
+        Dim _dt As New DataTable
+        Dim _BLayer As New BuyingBL("010")
+
+        Dim sIPAddress As String
+
+        sIPAddress = Request.ServerVariables("HTTP_X_FORWARDED_FOR")
+        If sIPAddress = "" Then sIPAddress = Request.ServerVariables("REMOTE_ADDR")
+
+        _dt = _BLayer.ProcessLogin(txtEmail.Text, txtPassword.Text, sIPAddress)
+
+        If IsNothing(_dt) Then
+            lblStatus.Text = "The Login details that you supplied are incorrect"
+            Exit Sub
+        Else
+            Session("user_id") = _dt.Rows(_dt.Rows.Count - 1)("user_id").ToString
+            Session("tier") = _dt.Rows(_dt.Rows.Count - 1)("tier").ToString
+            Session("view_clothing") = _dt.Rows(_dt.Rows.Count - 1)("view_clothing").ToString
+            Response.Redirect("ProductSelection.aspx")
+
+        End If
+
+    End Sub
+End Class

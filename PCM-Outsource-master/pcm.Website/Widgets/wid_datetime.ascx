@@ -1,0 +1,43 @@
+﻿<%@ Control Language="vb" ClassName="DTWid" %>
+<%@ Register assembly="DevExpress.Web.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web" tagprefix="dx" %>
+
+
+<script language="VB" runat="server">
+    Private Sub Page_Init(sender As Object, e As System.EventArgs) Handles Me.Init
+        DateLabel.Text = Format(Now, "dddd, dd MMMM, yyyy")
+    End Sub
+
+    Protected Sub Page_Load(sender As Object, e As EventArgs)
+
+    End Sub
+</script>
+    
+<script type="text/javascript" language="javascript">
+// <![CDATA[
+    function PrepareTimeValue(value) {
+        if (value < 10)
+            value = "0" + value;
+        return value;
+    }
+    function UpdateTime(s, e) {
+        var dateTime = new Date();
+        var timeString = PrepareTimeValue(dateTime.getHours()) + ":" + PrepareTimeValue(dateTime.getMinutes()) + ":" +
+            PrepareTimeValue(dateTime.getSeconds());
+        timeLabel.SetText(timeString);
+    }
+// ]]> 
+</script>
+<dx:ASPxTimer runat="server" ID="Timer" ClientInstanceName="timer" Interval="1000">
+	<ClientSideEvents Init="UpdateTime" Tick="UpdateTime" />
+</dx:ASPxTimer>
+<div class="timeContainer">
+	<dx:ASPxLabel runat="server" ID="TimeLabel" ClientInstanceName="timeLabel" Font-Bold="true"
+		Font-Size="20px">
+	</dx:ASPxLabel>
+</div>
+<div class="dateContainer">
+	<dx:ASPxLabel runat="server" ID="DateLabel" ClientInstanceName="dateLabel" Font-Size="12px">
+	</dx:ASPxLabel>
+</div>
+
+

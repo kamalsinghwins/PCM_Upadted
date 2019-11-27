@@ -1,0 +1,196 @@
+﻿
+body
+{
+    background: white;
+    color: Black;
+    font: 9pt Verdana;
+}
+
+#HeaderArea
+{
+    background: #D3E4F6;
+    width: 100%;
+    height: 50px;
+}
+
+#LayoutSplitter .HeaderPane
+{
+    background: #ededed;
+}
+
+
+.float_right_menu
+{
+    float: right;
+    margin-left: 0px;
+}
+
+.new_bureau
+{
+    margin-left: 20px;
+}
+
+.float_left
+{
+    float: left;
+}
+
+.main_menu
+{
+    width: 100%;
+    margin: 10px 0 5px 0;
+    padding-bottom: 5px;
+}
+
+
+.full
+{
+    width: 100%;
+    height: 100%;
+    background: Black !important;
+    border-color: Black !important;
+}
+
+
+.HeaderLogo
+{
+    margin-left: 15px;
+}
+
+.Sprite_Logo
+{
+    background-position: -1px -32px; /* Sprite_Logo_Light */
+}
+
+
+.MailMenuSearchBox
+{
+    margin-top: 1px;
+    margin-left: 32px;
+}
+
+.MailMenuSearchBoxButton
+{
+    background: White !important;
+    border-color: White !important;
+}
+
+.MailPopupButton
+{
+    float: right;
+    margin: 9px 9px 9px 0;
+}
+
+.CalendarNavArea
+{
+    height: 100%;
+    background: White;
+}
+
+.DateNavigatorContainer
+{
+    padding: 25px 0;
+    background: White;
+}
+
+.DateNavigator
+{
+    margin: 0 auto;
+}
+
+#LayoutSplitter .dxm-popup.HeaderSubMenu .dxm-item .dxm-content
+{
+    padding-top: 4px;
+}
+
+#LayoutSplitter .dxm-popup .HeaderSubMenu .dxm-item .dxm-image
+{
+    margin-right: 10px;
+    margin-top: -1px;
+}
+
+#LayoutSplitter .CornerMenu.dxm-vertical .dxm-image-l .dxm-item .dxm-content
+{
+    padding-top: 12px;
+}
+
+#LayoutSplitter .CornerMenu.dxm-vertical .dxm-image-l .dxm-item .dxm-image
+{
+    margin-top: -9px;
+}
+
+#MailGrid, #ContactGrid, #FeedGrid
+{
+    outline: none;
+}
+
+.clear
+{
+    clear: both;
+    height: 0;
+    width: 0;
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.side_table
+{
+    padding: 5px;
+    margin: 5px;
+}
+
+.main_table
+{
+    margin: 0px 0px 0px 20px;
+    border-spacing: 10px;
+}
+
+.notes_table
+{
+    margin: 0px 0px 0px 20px;
+    border-spacing: 10px;
+}
+
+.hud_label
+{
+    margin: 20px 0px 0px 22px;
+}
+
+.style4
+{
+    width: 104px;
+}
+
+.style6
+{
+    width: 422px;
+}
+
+.date_panel
+{
+    margin: 20px 0 0 20px;   
+}
+
+.widget
+{
+     vertical-align:middle;
+
+}
+
+ .warning_label 
+        {
+            margin: 10px 0 0 20px;   
+            padding-top: 10px;
+        }
+
+ .button_table
+{
+    margin: 10px 0 0 20px;   
+    width: 800px;
+}
+
+   .UpperCase input {
+            text-transform: uppercase;
+        }

@@ -1,0 +1,60 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="MobileIntranet.master.vb" Inherits="pcm.Website.MobileIntranet" %>
+
+<%@ Register Assembly="DevExpress.Web.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web" TagPrefix="dx" %>
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <script type="text/javascript" src="../js/General/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+    <link href="../../css/custom.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        .header
+        {
+            background-color: #cdd9e8!important
+        }
+    </style>
+</head>
+<body>
+    <form id="form" runat="server">
+        <div>
+            <dx:ASPxMenu runat="server" ItemAutoWidth="False" ClientInstanceName="ClientHeaderMenu" Target="MainHolder" Theme="Office2010Blue" Width="100%" ID="HeaderMenu">
+                <Items>
+                    <dx:MenuItem Name="Processing" Target="_self" Text="Processing">
+                        <Items>
+                            <dx:MenuItem Text="Positive">
+                                <Items>
+                                    <dx:MenuItem Name="DispatchStock" NavigateUrl="~/Mobile/dispatch_stock.aspx" Target="_self" Text="Dispatch Stock">
+                                    </dx:MenuItem>
+                                </Items>
+                            </dx:MenuItem>
+                        </Items>
+                    </dx:MenuItem>
+
+                    <dx:MenuItem Name="Logout" Text="Logout"></dx:MenuItem>
+                </Items>
+
+                <SubMenuStyle CssClass="HeaderSubMenu"></SubMenuStyle>
+
+                <BorderLeft BorderWidth="0px"></BorderLeft>
+
+                <BorderRight BorderWidth="0px"></BorderRight>
+
+                <BorderBottom BorderWidth="0px"></BorderBottom>
+                <ClientSideEvents ItemClick="function(s, e) {e.processOnServer = e.item.GetItemCount() == 0;}" />
+
+            </dx:ASPxMenu>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+        </div>
+    </form>
+</body>
+</html>

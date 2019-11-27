@@ -1,0 +1,186 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="collections.master.vb"
+    Inherits="pcm.Website.collections" %>
+
+<%@ Register Assembly="DevExpress.Web.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web" TagPrefix="dx" %>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Positive Live - Online</title>
+    <link href="../css/collections.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .style1 {
+            width: 100%;
+            height: 100%;
+        }
+        .logo-column {
+            width: 85%;
+            height: 100%;
+        }
+        .auto-style1 {
+            width: 88%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <script type="text/javascript">
+            // <![CDATA[
+            function OnSplitterPaneResized(s, e) {
+                var name = e.pane.name;
+                if (name == 'SidePane')
+                    ResizeControl(splitter, e.pane);
+
+            }
+            function ResizeControl(control, splitterPane) {
+                control.SetWidth(splitterPane.GetClientWidth());
+                control.SetHeight(splitterPane.GetClientHeight());
+            }
+
+            // ]]> 
+        </script>
+        <dx:ASPxSplitter ID="ASPxSplitter1" runat="server" FullscreenMode="True" Width="100%"
+            Height="100%" Orientation="Vertical" Theme="Office2010Blue">
+            <Panes>
+                <dx:SplitterPane Size="74">
+                    <ContentCollection>
+                        <dx:SplitterContentControl ID="SplitterContentControl1" runat="server">
+                            <table id="HeaderArea">
+                                <tr>
+                                    <td class="auto-style1">&nbsp;&nbsp;
+                                       <dx:ASPxLabel runat="server" Text="Positive Live" ID="ASPxLabel1" Font-Bold="False" Font-Names="Verdana" Font-Size="24px" ForeColor="#0066CC"></dx:ASPxLabel>
+                                    </td>
+                                    <td>
+                                       
+                                     
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <dx:ASPxMenu runat="server" ItemAutoWidth="False" ClientInstanceName="ClientHeaderMenu"  Target="MainHolder" Theme="Office2010Blue" Width="100%" ID="HeaderMenu">
+                                <Items>
+                                    <dx:MenuItem Name="Processing" Target="_self" Text="Processing">
+                                        <Items>
+                                            <dx:MenuItem Name="Collections" NavigateUrl="~/Collections/hud.aspx" Target="_self" Text="Collections"></dx:MenuItem>
+                                            <dx:MenuItem Name="ContactInvestigation" NavigateUrl="~/Collections/ContactInvestigation.aspx" Target="_self" Text="Contact Investigation"></dx:MenuItem>
+                                            <dx:MenuItem Name="Investigations" NavigateUrl="~/Collections/investigations.aspx" Target="_self" Text="Investigations"></dx:MenuItem>
+                                            <dx:MenuItem Text="Positive">
+                                                <Items>
+                                                    <dx:MenuItem Name="StockcodeManager" NavigateUrl="~/Positive/HeadOffice/StockcodeManager.aspx" Target="_self" Text="Stockcode Manager">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="PrePacks" NavigateUrl="~/Positive/HeadOffice/PrePacks.aspx" Target="_self" Text="Pre Packs">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="StockAllocationUpload" NavigateUrl="~/Positive/HeadOffice/UploadAllocations.aspx" Target="_self" Text="Stock Allocation Upload">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="UploadBuyingImages" NavigateUrl="~/Buying/ProductImageUpload.aspx" Text="Buying Images Upload" Target="_self">
+                                                    </dx:MenuItem>
+                                                </Items>
+                                            </dx:MenuItem>
+                                        </Items>
+                                    </dx:MenuItem>
+                                    <dx:MenuItem Name="Reporting" Text="Reporting">
+                                        <Items>
+                                            <dx:MenuItem Text="Collections">
+                                                <Items>
+                                                    <dx:MenuItem Name="Users" Text="Users">
+                                                        <Items>
+                                                            <dx:MenuItem Name="Transactions" NavigateUrl="~/Reports/Collections/ReportsUsers.aspx" Target="_self" Text="Transactions"></dx:MenuItem>
+                                                            <dx:MenuItem Name="Summary" NavigateUrl="~/Reports/Collections/ReportsUsersSummary.aspx" Target="_self" Text="Summary"></dx:MenuItem>
+                                                        </Items>
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="Legal" Text="Legal"></dx:MenuItem>
+                                                    <dx:MenuItem Name="PTP" Text="PTP"></dx:MenuItem>
+                                                    <dx:MenuItem Name="Aging Summary" NavigateUrl="~/Reports/PCM/ReportsAgingSummary.aspx" Target="_self" Text="Aging Summary"></dx:MenuItem>
+                                                </Items>
+                                            </dx:MenuItem>
+                                            <dx:MenuItem Text="PCM">
+                                                <Items>
+                                                    <dx:MenuItem NavigateUrl="~/collections/rep_WebServiceLogs.aspx" Target="_self" Text=" Transunion Webservice Logs"></dx:MenuItem>
+                                                </Items>
+                                            </dx:MenuItem>
+                                            <dx:MenuItem Text="Positive">
+                                                <Items>
+                                                    <dx:MenuItem Name="CashCards" NavigateUrl="~/Reports/Positive/CashCardCustomersTransactions.aspx" Target="_self" Text="Cash Cards Transactions">
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Name="WebServiceLogs" NavigateUrl="~/Reports/Positive/WebServiceLogs.aspx" Target="_self" Text="Web Service Logs">
+                                                    </dx:MenuItem>
+                                                </Items>
+                                            </dx:MenuItem>
+                                        </Items>
+                                    </dx:MenuItem>
+                                    <dx:MenuItem Name="Logout" Text="Logout"></dx:MenuItem>
+                                </Items>
+
+                                <SubMenuStyle CssClass="HeaderSubMenu"></SubMenuStyle>
+
+                                <BorderLeft BorderWidth="0px"></BorderLeft>
+
+                                <BorderRight BorderWidth="0px"></BorderRight>
+
+                                <BorderBottom BorderWidth="0px"></BorderBottom>
+                            </dx:ASPxMenu>
+
+                        </dx:SplitterContentControl>
+                    </ContentCollection>
+                    <PaneStyle CssClass="HeaderPane">
+                        <BorderBottom BorderWidth="0" />
+                        <Paddings Padding="0" />
+                    </PaneStyle>
+                </dx:SplitterPane>
+                <dx:SplitterPane AllowResize="False" ShowSeparatorImage="False">
+                    <Panes>
+                        <dx:SplitterPane MinSize="30" MaxSize="300" Size="250">
+                            <Panes>
+                                <dx:SplitterPane ScrollBars="None" Name="SidePane">
+                                    <ContentCollection>
+                                        <dx:SplitterContentControl ID="SplitterContentControl2" runat="server">
+                                            <asp:ContentPlaceHolder ID="SideHolder" runat="server">
+                                            </asp:ContentPlaceHolder>
+                                        </dx:SplitterContentControl>
+                                    </ContentCollection>
+                                    <PaneStyle>
+                                        <BorderBottom BorderWidth="1" />
+                                        <Paddings Padding="10px" />
+                                    </PaneStyle>
+                                </dx:SplitterPane>
+
+                            </Panes>
+                            <ContentCollection>
+                                <dx:SplitterContentControl runat="server" SupportsDisabledAttribute="True"></dx:SplitterContentControl>
+                            </ContentCollection>
+                        </dx:SplitterPane>
+                        <dx:SplitterPane Name="MainPane" Size="100%" ScrollBars="Vertical">
+                            <ContentCollection>
+                                <dx:SplitterContentControl ID="SplitterContentControl5" runat="server">
+                                    <asp:ContentPlaceHolder ID="MainHolder" runat="server">
+                                    </asp:ContentPlaceHolder>
+                                </dx:SplitterContentControl>
+                            </ContentCollection>
+                            <PaneStyle>
+                                <Border BorderWidth="0" />
+                                <Paddings Padding="0" />
+                            </PaneStyle>
+                        </dx:SplitterPane>
+                    </Panes>
+                    <Separator Visible="False" />
+                    <PaneStyle>
+                        <BorderBottom BorderWidth="0" />
+                        <Paddings Padding="10px" />
+                    </PaneStyle>
+
+                    <ContentCollection>
+                        <dx:SplitterContentControl runat="server" SupportsDisabledAttribute="True"></dx:SplitterContentControl>
+                    </ContentCollection>
+
+                </dx:SplitterPane>
+            </Panes>
+            <ClientSideEvents PaneResized="OnSplitterPaneResized" />
+        </dx:ASPxSplitter>
+    </form>
+</body>
+</html>

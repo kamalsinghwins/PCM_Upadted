@@ -1,0 +1,127 @@
+﻿.captionOrange, .captionBlack {
+    color: #fff;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.captionOrange {
+    background: #EB5100;
+    background-color: rgba(235, 81, 0, 0.6);
+}
+
+.captionBlack {
+    font-size: 16px;
+    background: #000;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+a.captionOrange, A.captionOrange:active, A.captionOrange:visited {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+    a.captionOrange:hover {
+        color: #eb5100;
+        text-decoration: underline;
+        background-color: #eeeeee;
+        background-color: rgba(238, 238, 238, 0.7);
+    }
+
+.bricon {
+    background: url(../images/browser-icons.png);
+}
+
+/* jssor slider thumbnail navigator skin 05 css */
+/*
+                .jssort05 .p           (normal)
+                .jssort05 .p:hover     (normal mouseover)
+                .jssort05 .pav           (active)
+                .jssort05 .pav:hover     (active mouseover)
+                .jssort05 .pdn           (mousedown)
+                */
+.jssort05 .f {
+    clip: rect(8px 63px 63px 8px);
+}
+
+.jssort05 .i {
+    position: absolute;
+    background: #ff0000;
+    filter: alpha(opacity=30);
+    opacity: .3;
+    width: 72px;
+    height: 72px;
+    top: 0;
+    left: 0;
+    transition: background-color .6s;
+    -moz-transition: background-color .6s;
+    -webkit-transition: background-color .6s;
+    -o-transition: background-color .6s;
+}
+
+.jssort05 .pav .i {
+    background: #7c1111;
+    filter: alpha(opacity=80);
+    opacity: .8;
+}
+
+.jssort05 .pdn .i {
+    background: none;
+}
+
+.jssort05 .p:hover .i, .jssort05 .pav:hover .i {
+    background: #7c1111;
+    filter: alpha(opacity=30);
+    opacity: .8;
+}
+
+.jssort05 .p:hover .i {
+    transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    -o-transition: none;
+}
+
+/* jssor slider direction navigator skin 06 css */
+/*
+                .jssord06l              (normal)
+                .jssord06r              (normal)
+                .jssord06l:hover        (normal mouseover)
+                .jssord06r:hover        (normal mouseover)
+                .jssord06ldn            (mousedown)
+                .jssord06rdn            (mousedown)
+                */
+.jssord06l, .jssord06r, .jssord06ldn, .jssord06rdn {
+    position: absolute;
+    cursor: pointer;
+    display: block;
+    background: url(../images/d06.png) no-repeat;
+    overflow: hidden;
+}
+
+.jssord06l {
+    background-position: -8px -38px;
+    display: none;
+}
+
+.jssord06r {
+    background-position: -68px -38px;
+    display: none;
+}
+
+.jssord06l:hover {
+    background-position: -128px -38px;
+}
+
+.jssord06r:hover {
+    background-position: -188px -38px;
+}
+
+.jssord06ldn {
+    background-position: -248px -38px;
+}
+
+.jssord06rdn {
+    background-position: -308px -38px;
+}
